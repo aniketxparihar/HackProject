@@ -6,9 +6,8 @@ import {AddLinkModal} from "./components/AddLinkModal";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [isAddLink, setIsAddLink] = useState(false);
   const {themeObject} = useTheme();
-  const {shortLinkState, shortLinkDispatch} = useShortLink();
+  const {searchState,searchData,handleSubmit,changeHandler,isAddLink,setIsAddLink } = useShortLink();
 
   const handleSearchResult = (e) => {
     if (e.key === "Enter") {
@@ -48,14 +47,18 @@ const Search = () => {
         </button>
       </div>
       <div className="links-ctn">
-        {shortLinkState.map((item) => (
-          <a key={item.id} href={item.link} target="_blank">
+        {searchData.map((item) => {
+          let domain = (new URL(item.URL));
+          domain = domain.hostname.replace('www.','');
+          return (
+          <a key={item.id} href={item.URL} target="_blank">
             <div className="favicon-ctn">
-              <img src={item.icon} alt={item.title} className="site-favicon" />
+              <img src={`https://api.faviconkit.com/${domain}/100`} alt={item.title} className="site-favicon" />
             </div>
-            <p style={{color: themeObject.text}}>{item.title}</p>
+            <span style={{color: themeObject.text}}>{item.title}</span>
           </a>
-        ))}
+          )
+        })}
       </div>
       {isAddLink && <AddLinkModal setIsAddLink={setIsAddLink} />}
     </section>

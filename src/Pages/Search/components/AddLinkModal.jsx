@@ -5,22 +5,8 @@ import {useShortLink} from "../../../Context/shortLink-context";
 import {searchFavicon} from "../searchFavicon";
 
 const AddLinkModal = ({setIsAddLink}) => {
-  const [linkTitle, setLinkTitle] = useState("");
-  const [linkUrl, setLinkUrl] = useState("");
   const {themeObject} = useTheme();
-  const {shortLinkDispatch} = useShortLink();
-  const handleAddLink = () => {
-    shortLinkDispatch({
-      type: "ADD_SHORT_LINK",
-      payload: {
-        id: uuid(),
-        title: linkTitle,
-        link: linkUrl,
-        icon: searchFavicon(linkUrl),
-      },
-    });
-    setIsAddLink((prev) => !prev);
-  };
+  const {searchState,searchData,handleSubmit,changeHandler}=useShortLink();
   return (
     <div
       className="modal-overlay"
@@ -39,8 +25,9 @@ const AddLinkModal = ({setIsAddLink}) => {
             backgroundColor: themeObject.secondary,
             color: themeObject.text,
           }}
-          value={linkTitle}
-          onChange={(e) => setLinkTitle(e.target.value)}
+          name="title"
+          value={searchState.title}
+          onChange={(e) => changeHandler(e)}
         />
         <input
           type="text"
@@ -50,10 +37,11 @@ const AddLinkModal = ({setIsAddLink}) => {
             backgroundColor: themeObject.secondary,
             color: themeObject.text,
           }}
-          value={linkUrl}
-          onChange={(e) => setLinkUrl(e.target.value)}
+          name="URL"
+          value={searchState.URL}
+          onChange={(e) => changeHandler(e)}
         />
-        <button onClick={handleAddLink} className="btn-create-link">
+        <button onClick={handleSubmit} className="btn-create-link">
           Create Shortcut
         </button>
       </div>
