@@ -1,9 +1,25 @@
 import React from "react";
 import { useTheme } from "../../Context/Theme-Context";
+import { useTodos } from "../../Context/TodoContext";
+import Completed from "./Completed";
+import InComplete from "./InComplete";
 import "./todo.css";
 
 function Todo() {
     const { themeObject } = useTheme();
+    const {todos,changeHandler,handleSubmit,input}=useTodos();
+    const calculateTasks=()=>{
+       const count= todos.reduce((acc,cur)=>{
+           if(!cur.isComplete){
+               acc=acc+1
+           }
+           return acc
+        },0)
+        return count
+    }
+    // const calculateTasks=()=>{
+    //    return todos.filter(item=>!item.isComplete).length
+    // }
   return (
     <div class="todo-container relative">
       <header class="todo-header flex-row justify-space-between align-center">
@@ -16,11 +32,13 @@ function Todo() {
               color: themeObject.text,
             }}
             placeholder="Add Task"
+            value={input} onChange={changeHandler}
           />
           <button
             type="submit"
             class="h-14 w-36 bg-cyan-500 rounded-full hover:bg-cyan-600"
             style={{ color: themeObject.text }}
+            onClick={(e)=>handleSubmit(e)}
           >
             Add
           </button>
@@ -31,66 +49,12 @@ function Todo() {
             color: themeObject.text,
           }}
         >
-          0 task(s) left
+          {calculateTasks()} task(s) left
         </h3>
       </header>
       <div class="flex justify-center">
-        <div className="w-1/2 flex-col items-center mr-8 ">
-          <h3 className="text-2xl m-8" style={{ color: themeObject.text }}>
-            Incomplete Tasks
-          </h3>
-          <ul
-            class="task-container list-cont flex-col items-center rounded-2xl"
-            style={{ backgroundColor: themeObject.primary }}
-          >
-            <li
-              class="p-2 flex items-center rounded-xl mb-4"
-              style={{
-                backgroundColor: themeObject.secondary,
-                color: themeObject.text,
-              }}
-            >
-              <button
-                class="mr-8 flex items-center"
-                style={{ color: themeObject.text }}
-              >
-                <span class="material-symbols-outlined">done</span>
-              </button>
-              <span className="incompleted-task"> breakfast </span>
-              <button class="mr-8 flex items-center ml-auto text-red-600 ">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="complete-container w-1/2 flex-col items-center ">
-          <h3 className="text-2xl m-8" style={{ color: themeObject.text }}>
-            Completed Tasks
-          </h3>
-          <ul
-            class="task-container list-cont flex-col items-center rounded-xl"
-            style={{ backgroundColor: themeObject.primary }}
-          >
-            <li
-              class="p-2 flex items-center rounded-xl mb-4"
-              style={{
-                backgroundColor: themeObject.secondary,
-                color: themeObject.text,
-              }}
-            >
-              <button
-                class="mr-8 flex items-center"
-                style={{ color: themeObject.text }}
-              >
-                <span class="material-symbols-outlined text-green-400">restore</span>
-              </button>
-              <span className="completed-task"> breakfast </span>
-              <button class="mr-8 flex items-center ml-auto text-red-600 ">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-          </ul>
-        </div>
+        <InComplete/>
+        <Completed/>
       </div>
       <button
         class="rounded-full h-14 w-36 bg-red-600 mt-8 ml-auto"

@@ -1,20 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import Routes from './Routes';
-import { BrowserRouter } from 'react-router-dom';
-import { ThemeProvider } from './Context/Theme-Context';
-import {ShortLinkProvider} from "./Context/shortLink-context";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./Context/Theme-Context";
+import { TodoProvider } from "./Context/TodoContext";
+import { ShortLinkProvider } from "./Context/shortLink-context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider>
-        <ShortLinkProvider>
-          <Routes />
-        </ShortLinkProvider>
-      </ThemeProvider>
+      <TodoProvider>
+        <ThemeProvider>
+          <ShortLinkProvider>
+            <Routes />
+          </ShortLinkProvider>
+        </ThemeProvider>
+      </TodoProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
