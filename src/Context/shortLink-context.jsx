@@ -5,12 +5,7 @@ import {searchFavicon} from "../Pages/Search/searchFavicon";
 const ShortLinkContext = createContext();
 
 const initialShortLink = [
-  {
-    id: uuid(),
-    title: "youtube",
-    link: "https://youtube.com",
-    icon: searchFavicon("https://youtube.com"),
-  },
+  
   {
     id: uuid(),
     title: "github",

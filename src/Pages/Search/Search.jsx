@@ -41,10 +41,10 @@ const Search = () => {
           />
         </div>
         <button
-          className="btn-add-link"
+          className="h-14 w-14 rounded-full bg-cyan-500 flex items-center justify-center"
           onClick={() => setIsAddLink((prev) => !prev)}
         >
-          <span className="material-icons pr-2">add</span>Add Link
+          <span className="material-icons ">add</span>
         </button>
       </div>
       <div className="links-ctn">

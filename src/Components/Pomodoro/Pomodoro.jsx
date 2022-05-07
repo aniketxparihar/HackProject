@@ -62,7 +62,7 @@ export const DisplayTimer = ({
         style={{ color: themeObject.text }}
       >
         <div className="time ">
-          {hours} : {minutes} : {seconds}
+          {hours===0?"00":hours} : {minutes===0?"00":minutes} : {seconds===0?"00":seconds}
         </div>
       </div>
       <div className="pomodoro__actions flex mt-8 items-center">
@@ -144,7 +144,7 @@ export const DisplayTimer = ({
           <div className="choose-min  justify-centeritems-center mr-4">
             <div className="heading font-bold ">Focus</div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center "
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center "
               onClick={() => {
                 setType("focus");
                 setFocusMinutes(25);
@@ -157,7 +157,7 @@ export const DisplayTimer = ({
               25
             </div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center"
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center"
               onClick={() => {
                 setType("focus");
                 setFocusMinutes(60);
@@ -170,7 +170,7 @@ export const DisplayTimer = ({
               60
             </div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center"
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center"
               onClick={() => {
                 setType("focus");
                 setFocusMinutes(120);
@@ -186,7 +186,7 @@ export const DisplayTimer = ({
           <div className="choose-min  justify-center items-center">
             <div className="heading font-bold ">Rest</div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center "
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center "
               onClick={() => {
                 setType("rest");
                 setRestMinutes(5);
@@ -199,7 +199,7 @@ export const DisplayTimer = ({
               5
             </div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center"
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center"
               onClick={() => {
                 setType("rest");
                 setRestMinutes(15);
@@ -212,7 +212,7 @@ export const DisplayTimer = ({
               15
             </div>
             <div
-              className="time h-8 w-8 mb-2 text-cyan-500 cursor-pointer font-bold flex justify-center items-center"
+              className="time h-8 w-8 mb-2 text-cyan-500 hover:text-gray-500 cursor-pointer font-bold flex justify-center items-center"
               onClick={() => {
                 setType("rest");
                 setRestMinutes(25);

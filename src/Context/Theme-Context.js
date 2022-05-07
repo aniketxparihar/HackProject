@@ -6,7 +6,7 @@ const ThemeProvider = ({children}) => {
     const [themeObject, setThemeObject] = useState({ primary: "#111827", secondary: "#374151", text: "#f3f4f6" });
     useEffect(() => {
         if (theme === "light")
-            setThemeObject({ primary: "#f9fafb", secondary: "#e5e7eb", text: "#1f2937" });
+            setThemeObject({ primary: "#fafaf9", secondary: "#e5e7eb", text: "#1f2937" });
         else
             setThemeObject({ primary: "#111827", secondary: "#374151", text: "#f9fafb" });
     },[theme]) 

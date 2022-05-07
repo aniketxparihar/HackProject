@@ -86,20 +86,9 @@
     flex-grow: 2;
   }
 
-  .task-count{
-      display: flex;
-      justify-content: flex-end;
-      flex-grow: 3;
-  }
-  
-  .input{
-  width: 100%;
-  padding: 9px;
-  font-size: 1rem;
-  margin-right: 10px;
-  /* border: none; */
-  border-radius: 4px;
-  }
+ .tasks-left{
+   top:-15px;
+ }
   
   .btn{
     border: none;
@@ -130,9 +119,7 @@
       padding: 5px;
   }
 
-  .incomplete-container, .complete-container{
-      width: 40%;
-  }
+  
   
   .task-container{
       width: 100%;
@@ -160,13 +147,6 @@
     margin-left: auto;
   }
   
-  .completed:hover{
-   color: rgb(0, 248, 12);
+  .completed-task{
+    text-decoration: line-through;
   }
-  .edit:hover{
-   color: orange;
-  }
-  .delete:hover{
-    color: tomato;
-  }
-  
