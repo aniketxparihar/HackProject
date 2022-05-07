@@ -7,6 +7,7 @@ import {searchFavicon} from "../searchFavicon";
 const AddLinkModal = ({setIsAddLink}) => {
   const {themeObject} = useTheme();
   const {searchState,searchData,handleSubmit,changeHandler}=useShortLink();
+
   return (
     <div
       className="modal-overlay"
@@ -44,6 +45,7 @@ const AddLinkModal = ({setIsAddLink}) => {
         <button onClick={handleSubmit} className="btn-create-link">
           Create Shortcut
         </button>
+      
       </div>
     </div>
   );
