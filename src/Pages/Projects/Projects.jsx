@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Projects = () => {
-  return (
-    <div>Projects</div>
-  )
-}
+  return <div>All Projects</div>;
+};
 
-export default Projects
+export default Projects;
