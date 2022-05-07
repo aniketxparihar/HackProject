@@ -31,7 +31,7 @@ const ShortLinkProvider = ({ children }) => {
   };
 
   const handleDelete=async(id)=>{
-    await deleteDoc(doc(db,"todos",id))
+    await deleteDoc(doc(db,"mylinks",id))
   }
 
   useEffect(() => {
