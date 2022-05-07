@@ -16,16 +16,20 @@ const Search = () => {
       setSearchInput("");
     }
   };
+
+  const handleDeleteLink = (item) => {
+    console.log(item);
+  };
   return (
     <section
       className="search-ctn rounded-xl"
-      style={{backgroundColor: themeObject.primary}}
+      style={{backgroundColor: themeObject.secondary}}
     >
       <div className="search-head">
         <div
           className="search-bar"
           style={{
-            backgroundColor: themeObject.secondary,
+            backgroundColor: themeObject.primary,
             color: themeObject.text,
           }}
         >
@@ -50,6 +54,12 @@ const Search = () => {
       <div className="links-ctn">
         {shortLinkState.map((item) => (
           <div className="link-delete-ctn" key={item.id}>
+            <span
+              className="material-icons link-delete-icon"
+              onClick={() => handleDeleteLink(item)}
+            >
+              close
+            </span>
             <a href={item.link} target="_blank">
               <div className="favicon-ctn">
                 <img
