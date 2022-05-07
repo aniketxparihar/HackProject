@@ -68,6 +68,13 @@
   align-items: center;
 }
 
+.add-link-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
 .add-link-input {
   padding: 0.5rem;
   border-radius: 5px;
@@ -98,11 +105,27 @@
   border-radius: 50%;
   border: 4px solid #fff;
   background-color: #fff;
-  margin-bottom: 5px;
+  margin: 0 auto 5px;
+  width: fit-content;
 }
 
 .site-favicon {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
+}
+
+.link-delete-ctn {
+  position: relative;
+}
+
+.link-delete-ctn:hover .link-delete-icon {
+  visibility: visible;
+}
+
+.link-delete-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
 }

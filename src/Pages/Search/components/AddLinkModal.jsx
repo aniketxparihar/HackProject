@@ -8,8 +8,9 @@ const AddLinkModal = ({setIsAddLink}) => {
   const [linkTitle, setLinkTitle] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
   const {themeObject} = useTheme();
-  const {shortLinkDispatch} = useShortLink();
-  const handleAddLink = () => {
+  const {shortLinkState, shortLinkDispatch} = useShortLink();
+  const handleAddLink = (e) => {
+    e.preventDefault();
     shortLinkDispatch({
       type: "ADD_SHORT_LINK",
       payload: {
@@ -31,31 +32,33 @@ const AddLinkModal = ({setIsAddLink}) => {
         onClick={(e) => e.stopPropagation()}
         style={{backgroundColor: themeObject.primary}}
       >
-        <input
-          type="text"
-          placeholder="Link Title"
-          className="add-link-input"
-          style={{
-            backgroundColor: themeObject.secondary,
-            color: themeObject.text,
-          }}
-          value={linkTitle}
-          onChange={(e) => setLinkTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Link URL"
-          className="add-link-input"
-          style={{
-            backgroundColor: themeObject.secondary,
-            color: themeObject.text,
-          }}
-          value={linkUrl}
-          onChange={(e) => setLinkUrl(e.target.value)}
-        />
-        <button onClick={handleAddLink} className="btn-create-link">
-          Create Shortcut
-        </button>
+        <form className="add-link-form" onSubmit={handleAddLink}>
+          <input
+            type="text"
+            placeholder="Link Title"
+            className="add-link-input"
+            required
+            style={{
+              backgroundColor: themeObject.secondary,
+              color: themeObject.text,
+            }}
+            value={linkTitle}
+            onChange={(e) => setLinkTitle(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Link URL"
+            className="add-link-input"
+            required
+            style={{
+              backgroundColor: themeObject.secondary,
+              color: themeObject.text,
+            }}
+            value={linkUrl}
+            onChange={(e) => setLinkUrl(e.target.value)}
+          />
+          <button className="btn-create-link">Create Shortcut</button>
+        </form>
       </div>
     </div>
   );

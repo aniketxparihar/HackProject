@@ -49,12 +49,18 @@ const Search = () => {
       </div>
       <div className="links-ctn">
         {shortLinkState.map((item) => (
-          <a key={item.id} href={item.link} target="_blank">
-            <div className="favicon-ctn">
-              <img src={item.icon} alt={item.title} className="site-favicon" />
-            </div>
-            <p style={{color: themeObject.text}}>{item.title}</p>
-          </a>
+          <div className="link-delete-ctn" key={item.id}>
+            <a href={item.link} target="_blank">
+              <div className="favicon-ctn">
+                <img
+                  src={item.icon}
+                  alt={item.title}
+                  className="site-favicon"
+                />
+              </div>
+              <p style={{color: themeObject.text}}>{item.title}</p>
+            </a>
+          </div>
         ))}
       </div>
       {isAddLink && <AddLinkModal setIsAddLink={setIsAddLink} />}
