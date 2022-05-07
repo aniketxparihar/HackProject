@@ -11,6 +11,14 @@ const Sidebar = () => {
       style={{ backgroundColor: themeObject.secondary }}
     >
       <NavLink
+        to="/todo"
+        className="search flex flex-col justify-center items-center bg-gray-600 rounded-xl text-gray-50 "
+        style={{ color: themeObject.text }}
+      >
+        <span className="material-symbols-outlined">playlist_add</span>
+        Todo
+      </NavLink>
+      <NavLink
         to="/search"
         className="search flex flex-col justify-center items-center  rounded-xl text-gray-50 "
         style={{

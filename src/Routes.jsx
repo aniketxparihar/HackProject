@@ -9,6 +9,7 @@ import Notes from "./Pages/Notes/Notes";
 import Projects from "./Pages/Projects/Projects";
 import Search from "./Pages/Search/Search";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Todo from "./Pages/Todo/Todo";
 const Routes = () => {
   return (
     <RoutesContainer>
@@ -19,6 +20,7 @@ const Routes = () => {
             <Route path="/projects" element={<Projects />} />
             <Route path="/search" element={<Search />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/todo" element={<Todo />} />
           </Route>
         </Route>
         <Route element={<AuthRoute />}>

@@ -4,13 +4,16 @@ import './index.css';
 import Routes from './Routes';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from './Context/Theme-Context';
+import {ShortLinkProvider} from "./Context/shortLink-context";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <Routes />
+        <ShortLinkProvider>
+          <Routes />
+        </ShortLinkProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>
