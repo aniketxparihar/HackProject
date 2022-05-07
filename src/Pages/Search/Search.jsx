@@ -19,13 +19,13 @@ const Search = () => {
   return (
     <section
       className="search-ctn rounded-xl"
-      style={{backgroundColor: themeObject.primary}}
+      style={{backgroundColor: themeObject.secondary}}
     >
       <div className="search-head">
         <div
           className="search-bar"
           style={{
-            backgroundColor: themeObject.secondary,
+            backgroundColor: themeObject.primary,
             color: themeObject.text,
           }}
         >
