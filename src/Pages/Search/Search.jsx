@@ -1,9 +1,11 @@
 import "./Search.css";
 import {useState} from "react";
 import {useTheme} from "../../Context/Theme-Context";
+import {AddLinkModal} from "./components/AddLinkModal";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
+  const [isAddLink, setIsAddLink] = useState(false);
   const {themeObject} = useTheme();
 
   const handleSearchResult = (e) => {
@@ -34,15 +36,24 @@ const Search = () => {
         </div>
         <button
           className="btn-add-link"
-          style={{
-            backgroundColor: themeObject.primary,
-            color: themeObject.text,
-          }}
+          // style={{
+          //   backgroundColor: themeObject.primary,
+          //   color: themeObject.text,
+          // }}
+          onClick={() => setIsAddLink((prev) => !prev)}
         >
           <span className="material-icons pr-2">add</span>Add Link
         </button>
       </div>
-      <div className="links-ctn"></div>
+      <div className="links-ctn">
+        <i className="fab fa-twitter link-icon"></i>
+        <i className="fab fa-linkedin-in link-icon"></i>
+        <i className="fab fa-github link-icon"></i>
+        <i className="fab fa-youtube link-icon"></i>
+        <i className="fab fa-instagram link-icon"></i>
+        <i className="fab fa-facebook link-icon"></i>
+      </div>
+      {isAddLink && <AddLinkModal setIsAddLink={setIsAddLink} />}
     </section>
   );
 };
