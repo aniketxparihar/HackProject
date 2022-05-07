@@ -1,69 +1,67 @@
 import React from "react";
 import { useTheme } from "../../Context/Theme-Context";
+import { useTodos } from "../../Context/TodoContext";
+import Completed from "./Completed";
+import InComplete from "./InComplete";
 import "./todo.css";
 
 function Todo() {
     const { themeObject } = useTheme();
+    const {todos,changeHandler,handleSubmit,input}=useTodos();
+    const calculateTasks=()=>{
+       const count= todos.reduce((acc,cur)=>{
+           if(!cur.isComplete){
+               acc=acc+1
+           }
+           return acc
+        },0)
+        return count
+    }
+    // const calculateTasks=()=>{
+    //    return todos.filter(item=>!item.isComplete).length
+    // }
   return (
-    <div class="todo-container">
+    <div class="todo-container relative">
       <header class="todo-header flex-row justify-space-between align-center">
         <form action="" class="form">
-          <input type="text" class="input" />
-          <button type="submit" class="btn addBtn p-3" style={{ color: themeObject.text }}>
+          <input
+            type="text"
+            class="w-4/5  p-2 mr-8 rounded-xl"
+            style={{
+              backgroundColor: themeObject.primary,
+              color: themeObject.text,
+            }}
+            placeholder="Add Task"
+            value={input} onChange={changeHandler}
+          />
+          <button
+            type="submit"
+            class="h-14 w-36 bg-cyan-500 rounded-full hover:bg-cyan-600"
+            style={{ color: themeObject.text }}
+            onClick={(e)=>handleSubmit(e)}
+          >
             Add
           </button>
         </form>
-        <h3 class="task-count text-left">0 task left</h3>
+        <h3
+          class="tasks-left rounded-xl text-left p-2 bg-cyan-500 absolute"
+          style={{
+            color: themeObject.text,
+          }}
+        >
+          {calculateTasks()} task(s) left
+        </h3>
       </header>
-      <div class="flex-row justify-space-between m-4">
-        <div class="incomplete-container flex-column align-center">
-          <h3>Tasks</h3>
-          <ul class="task-container list-cont flex-column align-center">
-            <li class="list-items flex-row-justify-align-center rounded">
-              <button class="btn todo-btn flex-row-justify-align-center">
-                <span class="material-symbols-outlined">done</span>
-              </button>
-              <span> breakfast </span>
-              <button class="btn todo-btn flex-row-justify-align-center btn-delete">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-            <li class="list-items flex-row-justify-align-center rounded">
-              <button class="btn todo-btn flex-row-justify-align-center">
-                <span class="material-symbols-outlined">done</span>
-              </button>
-              <span> breakfast </span>
-              <button class="btn todo-btn flex-row-justify-align-center btn-delete">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div class="complete-container flex-column align-center">
-          <h3>Tasks</h3>
-          <ul class="task-container list-cont flex-column align-center">
-            <li class="list-items flex-row-justify-align-center rounded">
-              <button class="btn todo-btn flex-row-justify-align-center">
-                <span class="material-symbols-outlined">done</span>
-              </button>
-              <span> breakfast </span>
-              <button class="btn todo-btn flex-row-justify-align-center btn-delete">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-            <li class="list-items flex-row-justify-align-center rounded">
-              <button class="btn todo-btn flex-row-justify-align-center">
-                <span class="material-symbols-outlined">done</span>
-              </button>
-              <span> breakfast </span>
-              <button class="btn todo-btn flex-row-justify-align-center btn-delete">
-                <span class="material-symbols-outlined">close</span>
-              </button>
-            </li>
-          </ul>
-        </div>
+      <div class="flex justify-center">
+        <InComplete/>
+        <Completed/>
       </div>
-      <button class="btn btn-delete m-4 p-3 rounded" style={{ color: themeObject.text }}>Clear all</button>
+      <button
+        class="rounded-full h-14 w-36 bg-red-600 mt-8 ml-auto"
+        style={{ color: themeObject.text }}
+      >
+        Clear all
+      </button>
     </div>
   );
 }

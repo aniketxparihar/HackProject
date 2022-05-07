@@ -3,6 +3,7 @@
     justify-content: space-evenly;
 }
 .notes,.search,.projects,.dashboard{
-    height:5rem;
-    width: 80%;
+    height:max-content;
+    padding:1.5rem 0rem 1.5rem 0rem;
+    width:60%;
 }

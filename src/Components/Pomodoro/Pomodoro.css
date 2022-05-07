@@ -1,0 +1,13 @@
+.pomodoro__container{
+    width:30rem;
+    height:100%;
+    margin-left:auto;
+}
+.heading{
+    text-align: start;
+}
+.choose-time{
+    position: absolute;
+    bottom:6rem;
+    right:-1.5rem;
+}
