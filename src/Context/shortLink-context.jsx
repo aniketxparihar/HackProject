@@ -1,5 +1,7 @@
 import {useContext, createContext, useReducer} from "react";
 import {v4 as uuid} from "uuid";
+import {searchFavicon} from "../Pages/Search/searchFavicon";
+
 const ShortLinkContext = createContext();
 
 const initialShortLink = [
@@ -7,26 +9,26 @@ const initialShortLink = [
     id: uuid(),
     title: "youtube",
     link: "https://youtube.com",
-    icon: "fab fa-youtube",
+    icon: searchFavicon("https://youtube.com"),
   },
   {
     id: uuid(),
     title: "github",
     link: "https://github.com",
-    icon: "fab fa-github",
+    icon: searchFavicon("https://github.com"),
   },
   {
     id: uuid(),
     title: "twitter",
     link: "https://twitter.com",
-    icon: "fab fa-twitter",
+    icon: searchFavicon("https://twitter.com"),
   },
 ];
 
 const shortLinkReducer = (state, action) => {
   switch (action.type) {
     case "ADD_SHORT_LINK":
-      return {state};
+      return [...state, action.payload];
     case "REMOVE_SHORT_LINK":
       return {state};
     default:

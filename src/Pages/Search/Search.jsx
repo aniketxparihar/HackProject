@@ -17,12 +17,15 @@ const Search = () => {
     }
   };
   return (
-    <section className="search-ctn">
+    <section
+      className="search-ctn rounded-xl"
+      style={{backgroundColor: themeObject.primary}}
+    >
       <div className="search-head">
         <div
           className="search-bar"
           style={{
-            backgroundColor: themeObject.primary,
+            backgroundColor: themeObject.secondary,
             color: themeObject.text,
           }}
         >
@@ -39,28 +42,18 @@ const Search = () => {
         </div>
         <button
           className="btn-add-link"
-          // style={{
-          //   backgroundColor: themeObject.primary,
-          //   color: themeObject.text,
-          // }}
           onClick={() => setIsAddLink((prev) => !prev)}
         >
           <span className="material-icons pr-2">add</span>Add Link
         </button>
       </div>
       <div className="links-ctn">
-        {/* <i className="fab fa-twitter link-icon"></i>
-        <i className="fab fa-linkedin-in link-icon"></i>
-        <i className="fab fa-github link-icon"></i>
-        <i className="fab fa-youtube link-icon"></i>
-        <i className="fab fa-instagram link-icon"></i>
-        <i className="fab fa-facebook link-icon"></i> */}
         {shortLinkState.map((item) => (
           <a key={item.id} href={item.link} target="_blank">
-            <div>
-              <i className={`${item.icon} link-icon`}></i>
+            <div className="favicon-ctn">
+              <img src={item.icon} alt={item.title} className="site-favicon" />
             </div>
-            <p>{item.title}</p>
+            <p style={{color: themeObject.text}}>{item.title}</p>
           </a>
         ))}
       </div>
