@@ -134,3 +134,10 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+.delete-link{
+  top: -5px;
+  right: -5px;
+  /* opacity: 0; */
+}
+
