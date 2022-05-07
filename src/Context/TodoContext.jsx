@@ -1,6 +1,6 @@
 import { createContext, useContext , useState,useEffect} from "react";
 import { colRef } from "../firebase/config";
-import { addDoc,onSnapshot, query } from "firebase/firestore";
+import { addDoc,getDocs,onSnapshot, query } from "firebase/firestore";
 
 const defaultValue=[]
 
@@ -16,10 +16,12 @@ const TodoProvider=({children})=>{
 
     const handleSubmit=(e)=>{
         e.preventDefault();
-        addDoc(colRef,{
-            todo:input,
-            isComplete:false
-        })
+        if(input){
+            addDoc(colRef,{
+                todo:input,
+                isComplete:false
+            })
+        }
         setInput("")
     }
 
@@ -34,6 +36,8 @@ const TodoProvider=({children})=>{
         })
         return ()=>unSub();
       }, []);
+
+    
 
     return(
         <>
