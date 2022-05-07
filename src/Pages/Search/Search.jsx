@@ -16,6 +16,10 @@ const Search = () => {
       setSearchInput("");
     }
   };
+
+  const handleDeleteLink = (item) => {
+    console.log(item);
+  };
   return (
     <section
       className="search-ctn rounded-xl"
@@ -50,6 +54,12 @@ const Search = () => {
       <div className="links-ctn">
         {shortLinkState.map((item) => (
           <div className="link-delete-ctn" key={item.id}>
+            <span
+              className="material-icons link-delete-icon"
+              onClick={() => handleDeleteLink(item)}
+            >
+              close
+            </span>
             <a href={item.link} target="_blank">
               <div className="favicon-ctn">
                 <img

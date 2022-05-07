@@ -128,4 +128,9 @@
   top: 0;
   right: 0;
   visibility: hidden;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
 }
