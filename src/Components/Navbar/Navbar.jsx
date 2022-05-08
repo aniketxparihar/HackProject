@@ -8,11 +8,10 @@ import { auth } from '../../firebase/config';
 import "./Navbar.css"
 const Navbar = () => {
   const { theme, themeHandler, themeObject } = useTheme();
-  const {setAuthToken}=useAuth();
+  
   const logoutHandler=()=>{
     signOut(auth).then(()=>{
       console.log("logout success")
-      setAuthToken(null)
     }).catch((error)=>{
       console.log(error.message)
     })

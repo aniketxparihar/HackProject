@@ -13,6 +13,9 @@ const AuthProvider = ({ children }) => {
                  setUser(user)
                  setAuthToken(user.accessToken)
              }
+             else{
+                 setAuthToken(null)
+             }
          })
      }, [])
 
@@ -24,8 +27,8 @@ const AuthProvider = ({ children }) => {
     //     }
     // },[])
 
-    console.log(user)
-    console.log(authToken)
+    // console.log(user)
+    // console.log(authToken)
 
 
     return (

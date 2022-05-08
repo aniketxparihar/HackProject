@@ -12,15 +12,15 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <TodoProvider>
-        <ThemeProvider>
-          <ShortLinkProvider>
-            <AuthProvider>
+      <AuthProvider>
+        <TodoProvider>
+          <ThemeProvider>
+            <ShortLinkProvider>
               <Routes />
-            </AuthProvider>
-          </ShortLinkProvider>
-        </ThemeProvider>
-      </TodoProvider>
+            </ShortLinkProvider>
+          </ThemeProvider>
+        </TodoProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

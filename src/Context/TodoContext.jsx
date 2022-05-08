@@ -1,7 +1,7 @@
 import { createContext, useContext , useState,useEffect} from "react";
 import { colRef } from "../firebase/config";
 import { addDoc,getDocs,onSnapshot, query } from "firebase/firestore";
-
+import { useAuth } from "./Auth-Context";
 const defaultValue=[]
 
 const todoContext=createContext(defaultValue);
@@ -9,6 +9,7 @@ const todoContext=createContext(defaultValue);
 const TodoProvider=({children})=>{
     const [input,setInput]=useState("");
     const [todos,setTodos]=useState([])
+    const {authToken}=useAuth();
     
     const changeHandler=(e)=>{{
         setInput(e.target.value)
@@ -19,7 +20,8 @@ const TodoProvider=({children})=>{
         if(input){
             addDoc(colRef,{
                 todo:input,
-                isComplete:false
+                isComplete:false,
+                uid:authToken
             })
         }
         setInput("")
