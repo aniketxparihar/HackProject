@@ -1,10 +1,22 @@
+import { signOut } from 'firebase/auth';
 import React from 'react'
 import { useAuth } from '../../Context/Auth-Context';
 import { useTheme } from '../../Context/Theme-Context';
+import { auth } from '../../firebase/config';
+
+
 import "./Navbar.css"
 const Navbar = () => {
   const { theme, themeHandler, themeObject } = useTheme();
-  const { logoutHandler } = useAuth();
+  const {setAuthToken}=useAuth();
+  const logoutHandler=()=>{
+    signOut(auth).then(()=>{
+      console.log("logout success")
+      setAuthToken(null)
+    }).catch((error)=>{
+      console.log(error.message)
+    })
+  }
   return (
     <div
       className="navbar__container bg-gray-400 m-8 h-20 rounded-2xl flex border-l-8 border-r-8 border-cyan-500"
