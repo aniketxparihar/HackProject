@@ -19,7 +19,7 @@ const Resources = () => {
      navigator.clipboard.writeText(link);
    };
   return (
-    <div className="h-full flex flex-col">
+    <div className=" flex flex-col">
       <div className="resources-input flex">
         <input
           type="text"

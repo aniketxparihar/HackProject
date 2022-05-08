@@ -66,18 +66,7 @@ export const DisplayTimer = ({
         </div>
       </div>
       <div className="pomodoro__actions flex mt-8 items-center mb-8">
-        <div
-          className="start h-16 w-16 mr-6 ml-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
-          style={{ backgroundColor: themeObject.secondary }}
-          onClick={start}
-        >
-          <span
-            className="material-symbols-outlined "
-            style={{ color: themeObject.text }}
-          >
-            play_circle
-          </span>
-        </div>
+        
         <div
           className="start h-16 w-16 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
@@ -242,10 +231,9 @@ const Pomodoro = () => {
  
   return (
     <div
-      className="pomodoro__container flex flex-col items-center justify-center relative"
+      className="pomodoro__container  flex flex-col items-center justify-center relative "
       style={{ backgroundColor: themeObject.primary }}
     >
-      
       <DisplayTimer
         expiryTimestamp={timer}
         setTimeSelectorVisible={setTimeSelectorVisible}
@@ -257,7 +245,6 @@ const Pomodoro = () => {
         setFocusMinutes={setFocusMinutes}
         setRestMinutes={setRestMinutes}
       />
-      
     </div>
   );
 };

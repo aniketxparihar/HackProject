@@ -18,9 +18,9 @@ const Routes = () => {
     <RoutesContainer>
       <Route path="/" element={<App />}>
         <Route path="/" element={<Home />}>
-          {/* <Route element={<AuthRoute />}> */}
+          <Route element={<AuthRoute />}>
             <Route path="/login" element={<Login />} />
-          {/* </Route> */}
+          </Route>
           <Route element={<PrivateRoute />}>
             <Route index path="/search" element={<Search />} />
             <Route path="/notes" element={<Notes />} />
