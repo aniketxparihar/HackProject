@@ -17,9 +17,7 @@ function Todo() {
         },0)
         return count
     }
-    // const calculateTasks=()=>{
-    //    return todos.filter(item=>!item.isComplete).length
-    // }
+    
   return (
     <div class="todo-container relative">
       <header class="todo-header flex-row justify-space-between align-center">

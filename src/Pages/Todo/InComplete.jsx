@@ -11,6 +11,7 @@ function InComplete() {
       <h3 className="text-2xl m-8" style={{ color: themeObject.text }}>
         Incomplete Tasks
       </h3>
+      
       <ul
         class="task-container list-cont flex-col items-center rounded-2xl"
         style={{ backgroundColor: themeObject.primary }}

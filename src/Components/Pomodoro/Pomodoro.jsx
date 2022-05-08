@@ -24,7 +24,7 @@ export const DisplayTimer = ({
   useEffect(pause, []);
   return (
     <>
-      <div className="type flex justify-center mt-8">
+      <div className="type flex justify-center ">
         <div
           className="focus h-32 w-32 bg-gray-900 mr-8 rounded-xl flex flex-col justify-center items-center font-bold text-2xl text-orange-500 cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
@@ -56,7 +56,7 @@ export const DisplayTimer = ({
         </div>
       </div>
       <div
-        className={`timer h-80 w-80 rounded-full  flex justify-center items-center font-bold text-5xl mt-8 border-2 ${
+        className={`timer h-72 w-72 rounded-full  flex justify-center items-center font-bold text-3xl mt-8 border-2 ${
           type === "focus" ? "border-orange-500" : "border-cyan-500"
         }`}
         style={{ color: themeObject.text }}
@@ -65,9 +65,9 @@ export const DisplayTimer = ({
           {hours===0?"00":hours} : {minutes===0?"00":minutes} : {seconds===0?"00":seconds}
         </div>
       </div>
-      <div className="pomodoro__actions flex mt-8 items-center">
+      <div className="pomodoro__actions flex mt-8 items-center mb-8">
         <div
-          className="start h-20 w-20 mr-6 ml-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
+          className="start h-16 w-16 mr-6 ml-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
           onClick={start}
         >
@@ -79,7 +79,7 @@ export const DisplayTimer = ({
           </span>
         </div>
         <div
-          className="start h-20 w-20 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
+          className="start h-16 w-16 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
           onClick={pause}
         >
@@ -91,7 +91,7 @@ export const DisplayTimer = ({
           </span>
         </div>
         <div
-          className="start h-20 w-20 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
+          className="start h-16 w-16 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
           onClick={resume}
         >
@@ -103,7 +103,7 @@ export const DisplayTimer = ({
           </span>
         </div>
         <div
-          className="reset h-20 w-20 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
+          className="reset h-16 w-16 mr-6 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
           onClick={() => {
             const time = new Date();
@@ -123,7 +123,7 @@ export const DisplayTimer = ({
           </span>
         </div>
         <div
-          className="settings h-20 w-20 rounded-xl flex text-xl justify-center items-center cursor-pointer"
+          className="settings h-16 w-16 rounded-xl flex text-xl justify-center items-center cursor-pointer"
           style={{ backgroundColor: themeObject.secondary }}
         >
           <span
