@@ -6,7 +6,7 @@ const PrivateRoute = () => {
   const {  authToken } = useAuth();
   const location = useLocation();
     return (
-      authToken!==""? <Outlet /> : <Navigate to="/login" replace={true} state={ {from:location.pathname}}/>
+      authToken? <Outlet /> : <Navigate to="/login" state={{from:location}} replace/>
   )
 }
 

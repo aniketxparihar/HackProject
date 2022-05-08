@@ -1,21 +1,35 @@
-import { useContext, createContext, useState, useEffect } from "react";
-
+import { useContext, createContext, useState, useEffect } from "react"; 
+import { auth } from "../firebase/config";
+import { onAuthStateChanged } from "firebase/auth";
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
-    const [authToken, setAuthToken] = useState("");
-    useEffect(() => {
-        if (localStorage.getItem("authToken"))
-        {
-            setAuthToken(localStorage.getItem("authToken"));
-        }
-    },[])
-    const [user, setUser] = useState(false);
-    const logoutHandler = () => {
-        localStorage.removeItem("authToken");
-        setAuthToken("");
-    }
+    const [authToken, setAuthToken] = useState(null);
+    const [user,setUser]=useState(null)
+
+
+     useEffect(() => {
+         onAuthStateChanged(auth,(user)=>{
+             if(user){
+                 setUser(user)
+                 setAuthToken(user.accessToken)
+             }
+         })
+     }, [])
+
+
+    // useEffect(() => {
+    //     if (localStorage.getItem("authToken"))
+    //     {
+    //         setAuthToken(localStorage.getItem("authToken"));
+    //     }
+    // },[])
+
+    console.log(user)
+    console.log(authToken)
+
+
     return (
-        <AuthContext.Provider value={{authToken,user,setAuthToken,setUser,logoutHandler  }}>
+        <AuthContext.Provider value={{authToken,user,setAuthToken,setUser  }}>
             {children}
         </AuthContext.Provider>
     )
