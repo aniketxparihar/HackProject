@@ -7,19 +7,22 @@ import { ThemeProvider } from "./Context/Theme-Context";
 import { TodoProvider } from "./Context/TodoContext";
 import { ShortLinkProvider } from "./Context/shortLink-context";
 import { AuthProvider } from "./Context/Auth-Context";
+import { NoteProvider } from "./Context/NoteContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <TodoProvider>
-          <ThemeProvider>
-            <ShortLinkProvider>
-              <Routes />
-            </ShortLinkProvider>
-          </ThemeProvider>
-        </TodoProvider>
+        <ThemeProvider>
+          <NoteProvider>
+            <TodoProvider>
+              <ShortLinkProvider>
+                <Routes />
+              </ShortLinkProvider>
+            </TodoProvider>
+          </NoteProvider>
+        </ThemeProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>

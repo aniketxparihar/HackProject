@@ -31,27 +31,6 @@ const TodoProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // (async()=>{
-    //     const q=query(colRef, where("uid", "==", authToken));
-    //     const querySnapShot=await getDocs(q)
-    //     let todosArray=[]
-    //     querySnapShot.forEach((doc)=>{
-    //         todosArray.push({...doc.data(),id:doc.id})
-    //     })
-    //     setTodos(todosArray)
-    // })();
-
-    // async function unSub() {
-    //   const q = query(colRef, where("uid", "==", authToken));
-    //   onSnapshot(q, (QuerySnapshot) => {
-    //     let todosArray = [];
-    //     QuerySnapshot.forEach((doc) => {
-    //       todosArray.push({ ...doc.data(), id: doc.id });
-    //     });
-    //     setTodos(todosArray);
-    //   });
-    // }
-    // return () => unSub();
 
     try {
         if(user){
@@ -68,7 +47,6 @@ const TodoProvider = ({ children }) => {
     }
   }, [user]);
 
-//   console.log(todos);
 
   return (
     <>
