@@ -13,9 +13,9 @@ const AuthProvider = ({ children }) => {
                  setUser(user)
                  setAuthToken(user.accessToken)
              }
-            //  else{
-            //      setAuthToken(null)
-            //  }
+             else{
+                 setAuthToken(null)
+             }
          })
      }, [])
 
