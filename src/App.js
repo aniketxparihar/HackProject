@@ -1,7 +1,8 @@
 import './App.css';
-import { Outlet } from "react-router-dom";
+import { Outlet,useLocation } from "react-router-dom";
+import { useEffect } from 'react';
 function App() {
-  
+
   return (
     <div className="App">
       <Outlet/>
