@@ -1,27 +1,29 @@
-import { signOut } from 'firebase/auth';
-import React from 'react'
-import { useAuth } from '../../Context/Auth-Context';
-import { useTheme } from '../../Context/Theme-Context';
-import { auth } from '../../firebase/config';
-import axios from 'axios';
-import "./Navbar.css"
+import {signOut} from "firebase/auth";
+import React from "react";
+import {useAuth} from "../../Context/Auth-Context";
+import {useTheme} from "../../Context/Theme-Context";
+import {auth} from "../../firebase/config";
+import axios from "axios";
+import "./Navbar.css";
 
 const Navbar = () => {
-  const { theme, themeHandler, themeObject } = useTheme();
+  const {theme, themeHandler, themeObject} = useTheme();
 
-  const logoutHandler=()=>{
-    signOut(auth).then(()=>{
-      localStorage.setItem("token","")
-      console.log("logout success")
-    }).catch((error)=>{
-      console.log(error.message)
-    })
-  }
+  const logoutHandler = () => {
+    signOut(auth)
+      .then(() => {
+        localStorage.setItem("token", "");
+        console.log("logout success");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   const date = new Date();
   return (
     <div
       className="navbar__container bg-gray-400 m-8 h-20 rounded-2xl flex border-l-8 border-r-8 border-cyan-500"
-      style={{ backgroundColor: themeObject.secondary }}
+      style={{backgroundColor: themeObject.secondary}}
     >
       <div className="navbar__container--heading ml-8 text-2xl text-cyan-400 font-bold">
         HackProject
@@ -47,7 +49,7 @@ const Navbar = () => {
             backgroundColor: themeObject.primary,
           }}
         >
-          {date.getDate()} / {date.getMonth()} / {date.getFullYear()}
+          {date.getDate()} / {date.getMonth() + 1} / {date.getFullYear()}
         </div>
         <div className="navbar__container--theme ml-6 flex justify-content items-center">
           <span
@@ -72,6 +74,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Navbar
+export default Navbar;
