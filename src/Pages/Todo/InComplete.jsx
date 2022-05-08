@@ -18,7 +18,6 @@ function InComplete() {
         style={{ backgroundColor: themeObject.primary }}
       >
         {todos.map((todo) => {
-          console.log(user.email===todo.email)
           return (
             todo.isComplete || (
               <li

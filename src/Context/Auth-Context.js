@@ -27,7 +27,7 @@ const AuthProvider = ({ children }) => {
     //     }
     // },[])
 
-    console.log(user)
+    // console.log(user)
     // console.log(authToken)
 
 
