@@ -3,7 +3,6 @@ import {
   createContext,
   useEffect,
   useState,
-  useReducer,
 } from "react";
 
 import { db, linkColRef } from "../firebase/config";

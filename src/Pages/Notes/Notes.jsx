@@ -1,7 +1,7 @@
 import React from 'react'
 import './Notes.css'
 import AddTodo from '../../Components/Note/AddNote/AddNote'
-import Todo from '../../Components/Note/Notes/Note'
+import {Note} from '../../Components/Note/Notes/Note'
 import { db } from '../../firebase/config'
 import {
   collection,
@@ -11,43 +11,20 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
+import { useNotes } from '../../Context/NoteContext'
 const Notes = () => {
-  const [todos, setTodos] = React.useState([]);
+  const {notes}=useNotes();
 
-  React.useEffect(() => {
-    const q = query(collection(db, "notes"));
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let todosArray = [];
-      querySnapshot.forEach((doc) => {
-        todosArray.push({ ...doc.data(), id: doc.id });
-      });
-      setTodos(todosArray);
-    });
-    return () => unsub();
-  }, []);
-
-  const handleEdit = async (todo, title) => {
-    await updateDoc(doc(db, "notes", todo.id), { title: title });
-  };
-  const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "notes", todo.id), { completed: !todo.completed });
-  };
-  const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "notes", id));
-  };
   return (
     <>
     <div>
     <AddTodo />
       </div>
       <div className="todo_container flex wrap">
-          {todos.map((todo) => (
-          <Todo
-              key={todo.id}
-              todo={todo}
-              toggleComplete={toggleComplete}
-              handleDelete={handleDelete}
-              handleEdit={handleEdit}
+          {notes.map((note) => (
+          <Note
+              key={note.id}
+              note={note}
           />
           ))}
       </div>
