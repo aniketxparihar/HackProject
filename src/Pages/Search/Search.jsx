@@ -54,7 +54,7 @@ const Search = () => {
         </button>
       </div>
       <div className="links-ctn">
-        {searchData.map((item) => {
+        {searchData?.map((item) => {
           let domain = new URL(item.URL);
           domain = domain.hostname.replace("www.", "");
           return (
@@ -65,12 +65,7 @@ const Search = () => {
               >
                 <span class="material-symbols-outlined">close</span>
               </button>
-              <a
-                key={item.id}
-                href={item.URL}
-                target="_blank"
-                className="link"
-              >
+              <a key={item.id} href={item.URL} target="_blank" className="link">
                 <div className="favicon-ctn">
                   <img
                     src={`https://api.faviconkit.com/${domain}/100`}
@@ -84,6 +79,7 @@ const Search = () => {
           );
         })}
       </div>
+      
       {isAddLink && <AddLinkModal setIsAddLink={setIsAddLink} />}
     </section>
   );

@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useTheme} from "../../Context/Theme-Context";
 
 const GithubChart = () => {
-  const [githubUser, setGithubUser] = useState("Pratik1005");
+  const [githubUser, setGithubUser] = useState(null);
   const [gitInput, setGitInput] = useState("");
   const {themeObject} = useTheme();
   const handleGithubChart = (e) => {
@@ -27,12 +27,13 @@ const GithubChart = () => {
         <button className="git-add-btn">Add</button>
       </form>
       <div>
-        <img
+        {githubUser?<img
           src={`http://ghchart.rshah.org/${githubUser}`}
           alt={githubUser}
           className="github-img"
-        />
+        />:null}
       </div>
+      
     </div>
   );
 };

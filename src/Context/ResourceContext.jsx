@@ -28,10 +28,15 @@ const ResourceProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (input) {
+      if(input.includes(".")&&input.includes("https://")){
       addDoc(collection(db, "projects", projecId, "project-resources"), {
         resourceLink: input,
         email: user.email,
       });
+      }
+      else {
+        window.alert("Please Enter a valid URL")
+      }
     }
     setInput("");
   };

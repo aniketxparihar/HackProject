@@ -1,23 +1,24 @@
-import {signOut} from "firebase/auth";
-import React from "react";
-import {useAuth} from "../../Context/Auth-Context";
-import {useTheme} from "../../Context/Theme-Context";
-import {auth} from "../../firebase/config";
-import "./Navbar.css";
+
+import { signOut } from 'firebase/auth';
+import React from 'react'
+import { useAuth } from '../../Context/Auth-Context';
+import { useTheme } from '../../Context/Theme-Context';
+import { auth } from '../../firebase/config';
+import "./Navbar.css"
+
 
 const Navbar = () => {
-  const {theme, themeHandler, themeObject} = useTheme();
+  const { theme, themeHandler, themeObject } = useTheme();
+  const { user } = useAuth();
+  const logoutHandler=()=>{
+    signOut(auth).then(()=>{
+      localStorage.setItem("token","")
+      console.log("logout success")
+    }).catch((error)=>{
+      console.log(error.message)
+    })
+  }
 
-  const logoutHandler = () => {
-    signOut(auth)
-      .then(() => {
-        localStorage.setItem("token", "");
-        console.log("logout success");
-      })
-      .catch((error) => {
-        console.log(error.message);
-      });
-  };
   const date = new Date();
   return (
     <div
@@ -26,6 +27,17 @@ const Navbar = () => {
     >
       <div className="navbar__container--heading ml-8 text-2xl text-cyan-400 font-bold">
         HackProject
+      </div>
+
+      <div className="ml-8">
+        <iframe
+          width="60%"
+          height={74}
+          scrolling="yes"
+          frameBorder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1143199600&color=%23070909&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+        />
       </div>
 
       <div className="navbar__container--right m-8 flex justify-content items-center">
@@ -63,12 +75,12 @@ const Navbar = () => {
           </span>
         </div>
         <div
-          className="navbar__container--theme ml-6 mr-6 flex justify-content items-center font-bold"
+          className=" ml-6 mr-6 flex justify-content items-center font-bold text-s"
           style={{
             color: themeObject.text,
           }}
         >
-          Hi , Aniket
+          Hi , {user?.displayName}
         </div>
       </div>
     </div>

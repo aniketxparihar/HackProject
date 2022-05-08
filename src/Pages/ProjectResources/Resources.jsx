@@ -1,4 +1,4 @@
-import { React, useEffect } from "react";
+import { React, useEffect,useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import { useResources } from "../../Context/ResourceContext";
 import { useTheme } from "../../Context/Theme-Context";
@@ -15,8 +15,11 @@ const Resources = () => {
   useEffect(() => {
     setProjectId(projectId);
   }, []);
+  const copyToClipboard = (link) => {
+     navigator.clipboard.writeText(link);
+   };
   return (
-    <div className="h-full flex flex-col">
+    <div className=" flex flex-col">
       <div className="resources-input flex">
         <input
           type="text"
@@ -44,16 +47,19 @@ const Resources = () => {
               }}
               key={resource.id}
             >
-              <a
-                target="_blank"
-                href={resource.resourceLink}
-              >
+              <a target="_blank" href={resource.resourceLink}>
                 {resource.resourceLink}
               </a>
-              <span className="material-icons search-icon ml-auto no-underline">
+              <span
+                className="material-icons search-icon ml-auto no-underline cursor-pointer"
+                onClick={()=>copyToClipboard(resource.resourceLink)}
+              >
                 content_copy
               </span>
-              <span className="material-icons cursor-pointer search-icon ml-2 no-underline" onClick={()=>handleResourceDelete(projectId,resource.id)}>
+              <span
+                className="material-icons cursor-pointer search-icon ml-2 no-underline"
+                onClick={() => handleResourceDelete(projectId, resource.id)}
+              >
                 delete
               </span>
             </div>

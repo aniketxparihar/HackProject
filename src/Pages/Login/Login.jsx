@@ -7,8 +7,8 @@ import { auth,googleProvider } from "../../firebase/config";
 import "./Login.css"
 
 const Login = () => {
-  const location=useNavigate();
-  const navigate = useLocation();
+  const navigate = useNavigate();
+  const location = useLocation();
   const { themeObject } = useTheme();
   const colors = [
     "#22d3ee",
@@ -26,7 +26,8 @@ const Login = () => {
     const credential=GoogleAuthProvider.credentialFromResult(result);
     const token=credential.accessToken;
     const user=result.user;
-    navigate(location.state?.from?.pathname || '/',{replace:true});
+    let from = location.state?.from?.pathname || "/";
+    navigate(from, { replace: true });
   }).catch((error)=>{
     console.log(error.message)
   })

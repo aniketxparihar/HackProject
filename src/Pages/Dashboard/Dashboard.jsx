@@ -25,36 +25,9 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div
-          className="project-data"
-          style={{
-            backgroundColor: themeObject.primary,
-            color: themeObject.text,
-          }}
-        >
-          <div className="project-data-item">
-            <span className="material-icons pr-2">rocket_launch</span>
-            Projects Completed
-          </div>
-          <div className="project-count">2/3</div>
-        </div>
-        <div
-          className="project-data"
-          style={{
-            backgroundColor: themeObject.primary,
-            color: themeObject.text,
-          }}
-        >
-          <div className="project-data-item">
-            <span className="material-icons-outlined pr-2">timer</span>
-            Total Time Spent
-          </div>
-          <div className="project-count">0h:0m:0s</div>
-        </div>
         <GithubChart />
       </div>
       <div className="leaderboard-ctn">
-        <LeaderBoard />
       </div>
     </section>
   );
