@@ -1,14 +1,11 @@
 import React from "react";
 import { useNotes } from "../../../Context/NoteContext";
 import { useTheme } from "../../../Context/Theme-Context";
-import "./Notes.css"
-export default function Note({ note}) {
-
+import "./Notes.css";
+export default function Note({ note }) {
   const [newTitle, setNewTitle] = React.useState(note.note);
   const { themeObject } = useTheme();
-  const {handleDelete}=useNotes();
-
-
+  const { handleDelete } = useNotes();
 
   return (
     <div
@@ -39,4 +36,4 @@ export default function Note({ note}) {
   );
 }
 
-export {Note}
+export { Note };
