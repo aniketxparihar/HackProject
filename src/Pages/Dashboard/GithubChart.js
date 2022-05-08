@@ -33,6 +33,7 @@ const GithubChart = () => {
           className="github-img"
         />
       </div>
+      
     </div>
   );
 };

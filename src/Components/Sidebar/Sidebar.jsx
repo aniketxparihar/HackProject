@@ -15,35 +15,30 @@ const Sidebar = () => {
         className="search flex flex-col justify-center items-center  rounded-xl bg-cyan-400 "
       >
         <span className="material-symbols-outlined ">playlist_add</span>
-        Todo
       </NavLink>
       <NavLink
         to="/search"
         className="search flex flex-col justify-center items-center  rounded-xl  bg-blue-400 "
       >
         <span className="material-symbols-outlined ">search</span>
-        Search
       </NavLink>
       <NavLink
         to="/notes"
         className="notes flex flex-col justify-center items-center  rounded-xl  bg-indigo-300 "
       >
         <span className="material-symbols-outlined ">description</span>
-        Notes
       </NavLink>
       <NavLink
         to="/projects"
         className="projects flex flex-col justify-center items-center  rounded-xl bg-violet-300 "
       >
         <span className="material-symbols-outlined ">folder_open</span>
-        Projects
       </NavLink>
       <NavLink
         to="/dashboard"
         className="dashboard flex flex-col justify-center items-center  rounded-xl bg-pink-300 "
       >
         <span className="material-symbols-outlined ">dashboard</span>
-        Dashboard
       </NavLink>
     </div>
   );

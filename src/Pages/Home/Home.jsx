@@ -11,6 +11,7 @@ const Home = () => {
       className="home__container flex flex-col"
       style={{ backgroundColor: themeObject.primary }}
     >
+
       <div className="home__wrapper  rounded-3xl">
         <Navbar />
         <div className="main__container flex m-8">

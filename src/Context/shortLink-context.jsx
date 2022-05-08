@@ -1,12 +1,14 @@
-import {
-  useContext,
-  createContext,
-  useEffect,
-  useState,
-} from "react";
+import { useContext, createContext, useEffect, useState } from "react";
 
 import { db, linkColRef } from "../firebase/config";
-import { addDoc, onSnapshot, query, deleteDoc, doc,where} from "firebase/firestore";
+import {
+  addDoc,
+  onSnapshot,
+  query,
+  deleteDoc,
+  doc,
+  where,
+} from "firebase/firestore";
 import { useAuth } from "./Auth-Context";
 
 const ShortLinkContext = createContext();
@@ -29,11 +31,15 @@ const ShortLinkProvider = ({ children }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchState.title && searchState.URL) {
-      addDoc(linkColRef, {
-        title: searchState.title,
-        URL: searchState.URL,
-        email: user.email,
-      });
+      if (searchState.URL.includes("https://") && searchState.URL.includes("."))
+        addDoc(linkColRef, {
+          title: searchState.title,
+          URL: searchState.URL,
+          email: user.email,
+        })
+      else {
+        window.alert("Enter a valid URL")
+      }
     }
     setSearchState({ URL: "", title: "" });
     setIsAddLink(false);
