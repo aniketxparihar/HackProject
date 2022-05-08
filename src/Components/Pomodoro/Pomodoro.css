@@ -1,5 +1,5 @@
 .pomodoro__container{
-    width:30rem;
+    width:50%;
     height:100%;
     margin-left:auto;
 }
@@ -9,5 +9,5 @@
 .choose-time{
     position: absolute;
     bottom:6rem;
-    right:-1.5rem;
+    right:4rem;
 }

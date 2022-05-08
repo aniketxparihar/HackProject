@@ -1,5 +1,5 @@
 .sidebar__container{
-    width: 10%;
+    min-width: 10%;
     justify-content: space-evenly;
 }
 .notes,.search,.projects,.dashboard{

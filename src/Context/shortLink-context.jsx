@@ -22,17 +22,18 @@ const ShortLinkProvider = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addDoc(linkColRef, {
-      title: searchState.title,
-      URL: searchState.URL,
-    });
+    if(searchState.title && searchState.URL){
+      addDoc(linkColRef, {
+        title: searchState.title,
+        URL: searchState.URL,
+      });
+    }
     setSearchState({URL:"",title:""});
     setIsAddLink(false)
   };
 
   const handleDelete=async(id)=>{
     await deleteDoc(doc(db,"mylinks",id))
-
   }
 
   useEffect(() => {
