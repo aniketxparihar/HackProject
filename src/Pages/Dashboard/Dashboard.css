@@ -1,0 +1,51 @@
+.dashboard-ctn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.dashboard-left-ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-img {
+  width: 5rem;
+  height: 5rem;
+  background: #f3f4f6;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-detail {
+  text-align: left;
+}
+
+.user-name {
+  font-size: 1.25rem;
+}
+
+.project-data {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+}
+
+.project-data-item {
+  display: flex;
+  align-items: center;
+}
