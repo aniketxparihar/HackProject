@@ -32,12 +32,13 @@ const auth=getAuth(app);
 // collection ref 
 const colRef=collection(db,"todos");
 const linkColRef=collection(db,"mylinks");
+const noteColRef=collection(db,"notes")
 
 // get collection data
 
 
 
-export {db,colRef,linkColRef,googleProvider,auth};
+export {db,colRef,linkColRef,googleProvider,auth,noteColRef};
 
 
 
