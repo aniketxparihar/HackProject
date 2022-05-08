@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "./Context/Theme-Context";
 import { TodoProvider } from "./Context/TodoContext";
 import { ShortLinkProvider } from "./Context/shortLink-context";
+import { AuthProvider } from "./Context/Auth-Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +15,9 @@ root.render(
       <TodoProvider>
         <ThemeProvider>
           <ShortLinkProvider>
-            <Routes />
+            <AuthProvider>
+              <Routes />
+            </AuthProvider>
           </ShortLinkProvider>
         </ThemeProvider>
       </TodoProvider>

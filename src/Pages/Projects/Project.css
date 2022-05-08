@@ -1,3 +1,18 @@
 .projects__container{
     height: 100%;
+    overflow:hidden;
+}
+.projects__wrapper{
+    width:100%;
+    overflow: auto;
+}
+.all-projects{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.project{
+    width:15rem;
+    
 }

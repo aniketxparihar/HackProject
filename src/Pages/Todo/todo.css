@@ -120,13 +120,15 @@
   }
 
   
-  
+ 
   .task-container{
       width: 100%;
       background-color: #d2d2d2;
       padding: 10px;
-      min-height: 15rem;
+      height:15rem;
+      overflow-y:auto;
   }
+ 
   
   .todo-msg{
     text-align: center;
@@ -149,4 +151,6 @@
   
   .completed-task{
     text-decoration: line-through;
+  }
+  .task-container{
   }
