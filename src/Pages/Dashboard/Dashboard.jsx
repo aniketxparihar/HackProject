@@ -2,6 +2,7 @@ import React from "react";
 import "./Dashboard.css";
 import {useTheme} from "../../Context/Theme-Context";
 import {LeaderBoard} from "./LeaderBoard";
+import {GithubChart} from "./GithubChart";
 
 const Dashboard = () => {
   const {themeObject} = useTheme();
@@ -47,11 +48,7 @@ const Dashboard = () => {
           </div>
           <div className="project-count">0h:0m:0s</div>
         </div>
-        <img
-          src="http://ghchart.rshah.org/Pratik1005"
-          alt="user Github chart"
-          className="github-img"
-        />
+        <GithubChart />
       </div>
       <div className="leaderboard-ctn">
         <LeaderBoard />

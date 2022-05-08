@@ -10,14 +10,14 @@ const LeaderBoard = () => {
       <div className="board-head" style={{color: themeObject.text}}>
         <h3>Rank</h3>
         <h3>User</h3>
-        <h3>Projects Completed</h3>
+        <h3>Projects</h3>
       </div>
       <div className="board-ctn" style={{backgroundColor: themeObject.primary}}>
         <div
           className="board-data"
           style={{backgroundColor: themeObject.secondary}}
         >
-          <h4 style={{color: themeObject.text}}>1</h4>
+          <h4 style={{color: themeObject.text}}>#1</h4>
           <div className="user-img-name">
             <img
               src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
@@ -35,7 +35,7 @@ const LeaderBoard = () => {
           className="board-data"
           style={{backgroundColor: themeObject.secondary}}
         >
-          <h4 style={{color: themeObject.text}}>2</h4>
+          <h4 style={{color: themeObject.text}}>#2</h4>
           <div className="user-img-name">
             <img
               src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
@@ -53,7 +53,7 @@ const LeaderBoard = () => {
           className="board-data"
           style={{backgroundColor: themeObject.secondary}}
         >
-          <h4 style={{color: themeObject.text}}>3</h4>
+          <h4 style={{color: themeObject.text}}>#3</h4>
           <div className="user-img-name">
             <img
               src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
