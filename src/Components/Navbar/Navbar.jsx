@@ -11,6 +11,7 @@ const Navbar = () => {
   
   const logoutHandler=()=>{
     signOut(auth).then(()=>{
+      localStorage.setItem("token","")
       console.log("logout success")
     }).catch((error)=>{
       console.log(error.message)

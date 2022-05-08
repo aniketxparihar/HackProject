@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth } from "../../Context/Auth-Context";
 import { useTheme } from "../../Context/Theme-Context";
 import { useTodos } from "../../Context/TodoContext";
 import {handleComplete, handleDelete} from "../../services/TodoServices"
@@ -6,17 +7,18 @@ import {handleComplete, handleDelete} from "../../services/TodoServices"
 function InComplete() {
   const { themeObject } = useTheme();
   const { todos } = useTodos();
+  const {user}=useAuth();
   return (
     <div className="w-1/2 flex-col items-center mr-8 ">
       <h3 className="text-2xl m-8" style={{ color: themeObject.text }}>
         Incomplete Tasks
       </h3>
-      
       <ul
         class="task-container list-cont flex-col items-center rounded-2xl"
         style={{ backgroundColor: themeObject.primary }}
       >
         {todos.map((todo) => {
+          console.log(user.email===todo.email)
           return (
             todo.isComplete || (
               <li
