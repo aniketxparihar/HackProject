@@ -1,12 +1,10 @@
-import {useState} from "react";
-import {v4 as uuid} from "uuid";
+
 import {useTheme} from "../../../Context/Theme-Context";
 import {useShortLink} from "../../../Context/shortLink-context";
-import {searchFavicon} from "../searchFavicon";
 
 const AddLinkModal = ({setIsAddLink}) => {
   const {themeObject} = useTheme();
-  const {searchState,searchData,handleSubmit,changeHandler}=useShortLink();
+  const {searchState,handleSubmit,changeHandler}=useShortLink();
 
   return (
     <div

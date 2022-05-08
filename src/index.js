@@ -8,6 +8,11 @@ import { TodoProvider } from "./Context/TodoContext";
 import { ShortLinkProvider } from "./Context/shortLink-context";
 import { AuthProvider } from "./Context/Auth-Context";
 import { NoteProvider } from "./Context/NoteContext";
+import { ProjectsProvider } from "./Context/ProjectsContext";
+import { ProjectTodoProvider } from "./Context/ProjectTodoContext";
+import {
+  ResourceProvider,
+} from "./Context/ResourceContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,13 +20,19 @@ root.render(
     <BrowserRouter>
       <AuthProvider>
         <ThemeProvider>
-          <NoteProvider>
-            <TodoProvider>
-              <ShortLinkProvider>
-                <Routes />
-              </ShortLinkProvider>
-            </TodoProvider>
-          </NoteProvider>
+          <ProjectsProvider>
+            <ProjectTodoProvider>
+              <ResourceProvider>
+                <NoteProvider>
+                  <TodoProvider>
+                    <ShortLinkProvider>
+                      <Routes />
+                    </ShortLinkProvider>
+                  </TodoProvider>
+                </NoteProvider>
+              </ResourceProvider>
+            </ProjectTodoProvider>
+          </ProjectsProvider>
         </ThemeProvider>
       </AuthProvider>
     </BrowserRouter>
