@@ -1,9 +1,11 @@
+
 import { signOut } from 'firebase/auth';
 import React from 'react'
 import { useAuth } from '../../Context/Auth-Context';
 import { useTheme } from '../../Context/Theme-Context';
 import { auth } from '../../firebase/config';
 import "./Navbar.css"
+
 
 const Navbar = () => {
   const { theme, themeHandler, themeObject } = useTheme();
