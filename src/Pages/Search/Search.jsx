@@ -63,7 +63,7 @@ const Search = () => {
           let domain = new URL(item.URL);
           domain = domain.hostname.replace("www.", "");
           return (
-            <>
+            <div className="ml-8 ">
               <button
                 className="delete-link"
                 onClick={(e) => handleDelete(item.id)}
@@ -85,7 +85,7 @@ const Search = () => {
                 </div>
                 <span style={{ color: themeObject.text }}>{item.title}</span>
               </a>
-            </>
+            </div>
           );
         })}
       </div>

@@ -17,6 +17,7 @@ const Navbar = () => {
       console.log(error.message)
     })
   }
+  const date = new Date();
   return (
     <div
       className="navbar__container bg-gray-400 m-8 h-20 rounded-2xl flex border-l-8 border-r-8 border-cyan-500"
@@ -45,7 +46,7 @@ const Navbar = () => {
             backgroundColor: themeObject.primary,
           }}
         >
-          Date 1/2/2
+         {date.getDate()} / {date.getMonth()} / {date.getFullYear()}
         </div>
         <div className="navbar__container--theme ml-6 flex justify-content items-center">
           <span

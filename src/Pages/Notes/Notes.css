@@ -60,3 +60,11 @@
 .button-delete {
   color: rgb(255, 122, 98);
 }
+.todo_container{
+  width:100%;
+  overflow:hidden;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  height:25rem;
+}

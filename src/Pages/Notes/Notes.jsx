@@ -40,7 +40,7 @@ const Notes = () => {
     <div>
     <AddTodo />
       </div>
-      <div className="todo_container">
+      <div className="todo_container flex wrap">
           {todos.map((todo) => (
           <Todo
               key={todo.id}
