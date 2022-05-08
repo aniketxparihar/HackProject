@@ -34,6 +34,11 @@ const Dashboard = () => {
           </div>
           <div className="project-count">0h:0m:0s</div>
         </div>
+        <img
+          src="http://ghchart.rshah.org/Pratik1005"
+          alt="user Github chart"
+          className="github-img"
+        />
       </div>
       <div>
         <p>Leaderboard</p>
