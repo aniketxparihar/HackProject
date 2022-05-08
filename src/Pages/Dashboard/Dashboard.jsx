@@ -3,6 +3,7 @@ import "./Dashboard.css";
 import {useTheme} from "../../Context/Theme-Context";
 import {LeaderBoard} from "./LeaderBoard";
 import { useAuth } from "../../Context/Auth-Context";
+import {GithubChart} from "./GithubChart";
 
 const Dashboard = () => {
   const { themeObject } = useTheme();
@@ -50,12 +51,7 @@ const Dashboard = () => {
           </div>
           <div className="project-count">0h:0m:0s</div>
         </div>
-        <div className="text-xl font-bold" style={{color:themeObject.text}}>Your Github Activities</div>
-        <img
-          src="http://ghchart.rshah.org/aniketxparihar"
-          alt="user Github chart"
-          className="github-img"
-        />
+        <GithubChart />
       </div>
       <div className="leaderboard-ctn">
         <LeaderBoard />

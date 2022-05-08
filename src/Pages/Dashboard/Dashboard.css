@@ -55,6 +55,27 @@
   height: 6rem;
 }
 
+.github-form {
+  padding: 1rem 0 2rem;
+}
+
+.github-user-input {
+  padding: 0.5rem;
+  color: #000;
+  border-radius: 10px;
+}
+
+.github-user-input:focus {
+  outline: none;
+}
+
+.git-add-btn {
+  background-color: #06b6d4;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+}
+
 /* leaderboard */
 .leaderboard-ctn {
   height: 100%;
