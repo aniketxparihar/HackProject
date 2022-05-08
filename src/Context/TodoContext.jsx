@@ -1,7 +1,8 @@
 import { createContext, useContext , useState,useEffect} from "react";
 import { colRef } from "../firebase/config";
-import { addDoc,getDocs,onSnapshot, query } from "firebase/firestore";
+import { addDoc,getDocs,onSnapshot, query,where } from "firebase/firestore";
 import { useAuth } from "./Auth-Context";
+import { async } from "@firebase/util";
 const defaultValue=[]
 
 const todoContext=createContext(defaultValue);
@@ -28,18 +29,19 @@ const TodoProvider=({children})=>{
     }
 
     useEffect(() => {
-        const q=query(colRef);
-        const unSub=onSnapshot(q,(QuerySnapshot)=>{
-          let todosArray=[]
-          QuerySnapshot.forEach((doc)=>{
-            todosArray.push({...doc.data(),id:doc.id})
-          })
-          setTodos(todosArray)
-        })
-        return ()=>unSub();
-      }, []);
+        (async()=>{
+            const q=query(colRef, where("uid", "==", authToken));
+            const querySnapShot=await getDocs(q)
+            let todosArray=[]
+            querySnapShot.forEach((doc)=>{
+                todosArray.push({...doc.data(),id:doc.id})
+            })
+            setTodos(todosArray)
+        })();
+        
+      }, [authToken]);
 
-    
+    console.log(todos)
 
     return(
         <>
