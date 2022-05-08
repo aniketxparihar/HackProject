@@ -79,6 +79,7 @@
   gap: 1rem;
   padding: 1rem;
   border-radius: 10px;
+  height: 25rem;
   overflow-y: auto;
 }
 

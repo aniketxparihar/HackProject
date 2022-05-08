@@ -62,57 +62,6 @@ const LeaderBoard = () => {
           </div>
           <h4 style={{color: themeObject.text}}>3/4</h4>
         </div>
-
-        {/* <div
-          className="board-data"
-          style={{backgroundColor: themeObject.secondary}}
-        >
-          <div className="user-img-name">
-            <img
-              src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
-              alt="user-name"
-              className="board-user-img"
-            />
-            <h4 className="pl-2" style={{color: themeObject.text}}>
-              Jhon Doe
-            </h4>
-          </div>
-          <h4 style={{color: themeObject.text}}>3/4</h4>
-        </div>
-        
-        <div
-          className="board-data"
-          style={{backgroundColor: themeObject.secondary}}
-        >
-          <div className="user-img-name">
-            <img
-              src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
-              alt="user-name"
-              className="board-user-img"
-            />
-            <h4 className="pl-2" style={{color: themeObject.text}}>
-              Jhon Doe
-            </h4>
-          </div>
-          <h4 style={{color: themeObject.text}}>3/4</h4>
-        </div>
-       
-        <div
-          className="board-data"
-          style={{backgroundColor: themeObject.secondary}}
-        >
-          <div className="user-img-name">
-            <img
-              src="https://assetplay.netlify.app/static/media/jhon.8bcfe623.jpg"
-              alt="user-name"
-              className="board-user-img"
-            />
-            <h4 className="pl-2" style={{color: themeObject.text}}>
-              Jhon Doe
-            </h4>
-          </div>
-          <h4 style={{color: themeObject.text}}>3/4</h4>
-        </div> */}
       </div>
     </>
   );
