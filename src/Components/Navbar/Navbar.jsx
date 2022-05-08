@@ -3,7 +3,6 @@ import React from "react";
 import {useAuth} from "../../Context/Auth-Context";
 import {useTheme} from "../../Context/Theme-Context";
 import {auth} from "../../firebase/config";
-import axios from "axios";
 import "./Navbar.css";
 
 const Navbar = () => {
