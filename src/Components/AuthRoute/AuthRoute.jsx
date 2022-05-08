@@ -5,7 +5,7 @@ import { Navigate } from 'react-router-dom';
 const AuthRoute = () => {
   const { user, authToken }= useAuth();
   return (
-    authToken?<Navigate to="/todo"/>:<Outlet/>
+    <Outlet/>
   )
 }
 

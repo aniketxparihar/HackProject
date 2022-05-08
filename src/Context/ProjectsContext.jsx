@@ -10,6 +10,7 @@ const ProjectsProvider = ({ children }) => {
   const [input, setInput] = useState("");
   const [projects, setProjects] = useState([]);
   const { user } = useAuth();
+  const [countTasks, setCountTasks] = useState(0);
 
   const changeHandler = (e) => {
     {
@@ -53,7 +54,7 @@ const ProjectsProvider = ({ children }) => {
   return (
     <>
       <ProjectsContext.Provider
-        value={{projects,input,handleSubmit,handleDelete,changeHandler }}
+        value={{projects,input,handleSubmit,handleDelete,changeHandler,countTasks,setCountTasks }}
       >
         {children}
       </ProjectsContext.Provider>

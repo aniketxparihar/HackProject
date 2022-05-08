@@ -18,22 +18,23 @@ const Routes = () => {
     <RoutesContainer>
       <Route path="/" element={<App />}>
         <Route path="/" element={<Home />}>
-          <Route element={<AuthRoute />}>
+          {/* <Route element={<AuthRoute />}> */}
             <Route path="/login" element={<Login />} />
-          </Route>
+          {/* </Route> */}
           <Route element={<PrivateRoute />}>
+            <Route index path="/search" element={<Search />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/projects/:projectId" element={<Project />}>
-              <Route  path="/projects/:projectId" element={<ProjectTodo/>} />
+              <Route path="/projects/:projectId" element={<ProjectTodo />} />
               <Route
                 path="/projects/:projectId/resources"
                 element={<Resources />}
               />
             </Route>
-            <Route path="/search" element={<Search />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/todo" element={<Todo />} />
+            <Route path="/" element={<Todo/>}/>
           </Route>
         </Route>
       </Route>

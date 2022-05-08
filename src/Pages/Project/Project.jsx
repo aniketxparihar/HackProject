@@ -1,10 +1,18 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Link, Outlet, useParams } from 'react-router-dom';
 import Pomodoro from '../../Components/Pomodoro/Pomodoro';
+import { useProjects } from '../../Context/ProjectsContext';
+import { useProjectTodos } from '../../Context/ProjectTodoContext';
 import ProjectTodo from "./ProjectTodo"
 
 const Project = () => {
-  const {projectId}=useParams();
+  const { projectId } = useParams();
+  const { projectTodos } = useProjectTodos();
+  const { countTasks,setCountTasks } = useProjects();
+  useEffect(() => {
+    setCountTasks(projectTodos.filter((todo)=>todo.isComplete).length)
+}, [])
   return (
     <div className="flex">
       <div className="flex flex-col w-1/2">

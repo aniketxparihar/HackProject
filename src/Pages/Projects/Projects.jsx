@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import Pomodoro from "../../Components/Pomodoro/Pomodoro";
 import { useProjects } from "../../Context/ProjectsContext";
@@ -6,7 +6,8 @@ import { useTheme } from "../../Context/Theme-Context";
 import "./Project.css";
 const Projects = () => {
   const { themeObject } = useTheme();
-  const { projects, input, handleSubmit, handleDelete,changeHandler } = useProjects();
+  const { projects, input, handleSubmit, handleDelete, changeHandler } = useProjects();
+
   return (
     <div className="projects__container flex ">
       <div className="projects__wrapper ">
@@ -26,8 +27,7 @@ const Projects = () => {
             className="h-12 w-36 bg-cyan-500 rounded-xl"
             onClick={(e) => handleSubmit(e)}
           >
-            {" "}
-            Add{" "}
+            Add
           </button>
         </div>
         <div className="all-projects flex ">
