@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {collection,getFirestore} from "firebase/firestore"
-
+import {collection,getFirestore,} from "firebase/firestore"
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -20,6 +20,15 @@ const app=initializeApp(firebaseConfig);
 // init service
 const db=getFirestore(app);
 
+// auth provider 
+
+const googleProvider=new GoogleAuthProvider();
+const auth=getAuth(app);
+
+
+
+
+
 // collection ref 
 const colRef=collection(db,"todos");
 const linkColRef=collection(db,"mylinks");
@@ -28,7 +37,7 @@ const linkColRef=collection(db,"mylinks");
 
 
 
-export {db,colRef,linkColRef};
+export {db,colRef,linkColRef,googleProvider,auth};
 
 
 

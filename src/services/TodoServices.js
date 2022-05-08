@@ -1,5 +1,5 @@
 import { db } from "../firebase/config";
-import { deleteDoc, doc, onSnapshot,getDocs, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, updateDoc } from "firebase/firestore";
 
 const handleDelete = async (id) => {
   await deleteDoc(doc(db, "todos", id));
