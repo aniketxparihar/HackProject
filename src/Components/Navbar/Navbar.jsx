@@ -3,12 +3,12 @@ import React from 'react'
 import { useAuth } from '../../Context/Auth-Context';
 import { useTheme } from '../../Context/Theme-Context';
 import { auth } from '../../firebase/config';
-
-
+import axios from 'axios';
 import "./Navbar.css"
+
 const Navbar = () => {
   const { theme, themeHandler, themeObject } = useTheme();
-  
+
   const logoutHandler=()=>{
     signOut(auth).then(()=>{
       localStorage.setItem("token","")
@@ -26,6 +26,7 @@ const Navbar = () => {
       <div className="navbar__container--heading ml-8 text-2xl text-cyan-400 font-bold">
         HackProject
       </div>
+
       <div className="navbar__container--right m-8 flex justify-content items-center">
         <div className="navbar__container--theme mr-6 flex justify-content items-center">
           <span
@@ -46,7 +47,7 @@ const Navbar = () => {
             backgroundColor: themeObject.primary,
           }}
         >
-         {date.getDate()} / {date.getMonth()} / {date.getFullYear()}
+          {date.getDate()} / {date.getMonth()} / {date.getFullYear()}
         </div>
         <div className="navbar__container--theme ml-6 flex justify-content items-center">
           <span
@@ -59,6 +60,14 @@ const Navbar = () => {
           >
             {theme === "light" ? "dark_mode" : "light_mode"}
           </span>
+        </div>
+        <div
+          className="navbar__container--theme ml-6 mr-6 flex justify-content items-center font-bold"
+          style={{
+            color: themeObject.text,
+          }}
+        >
+          Hi , Aniket
         </div>
       </div>
     </div>

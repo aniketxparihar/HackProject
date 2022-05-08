@@ -2,22 +2,25 @@ import React from "react";
 import "./Dashboard.css";
 import {useTheme} from "../../Context/Theme-Context";
 import {LeaderBoard} from "./LeaderBoard";
+import { useAuth } from "../../Context/Auth-Context";
 
 const Dashboard = () => {
-  const {themeObject} = useTheme();
+  const { themeObject } = useTheme();
+  const { user } = useAuth();
+  console.log(user)
   return (
     <section className="dashboard-ctn">
       <div className="dashboard-left-ctn">
         <div className="user-profile">
-          <div className="user-img">
-            <span className="material-icons-outlined">photo_camera</span>
+          <div className="user-img" >
+            <img src={user.photoURL} alt="user image" />
           </div>
           <div className="user-detail">
             <h3 className="user-name" style={{color: themeObject.text}}>
-              Jhon Doe
+              {user.displayName}
             </h3>
             <p className="user-email" style={{color: themeObject.text}}>
-              jhondoe@gmail.com
+              {user.email}
             </p>
           </div>
         </div>
@@ -47,8 +50,9 @@ const Dashboard = () => {
           </div>
           <div className="project-count">0h:0m:0s</div>
         </div>
+        <div className="text-xl font-bold" style={{color:themeObject.text}}>Your Github Activities</div>
         <img
-          src="http://ghchart.rshah.org/Pratik1005"
+          src="http://ghchart.rshah.org/aniketxparihar"
           alt="user Github chart"
           className="github-img"
         />
