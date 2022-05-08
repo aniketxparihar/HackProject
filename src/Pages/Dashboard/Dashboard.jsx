@@ -1,6 +1,7 @@
 import React from "react";
 import "./Dashboard.css";
 import {useTheme} from "../../Context/Theme-Context";
+import {LeaderBoard} from "./LeaderBoard";
 
 const Dashboard = () => {
   const {themeObject} = useTheme();
@@ -20,14 +21,26 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div className="project-data">
+        <div
+          className="project-data"
+          style={{
+            backgroundColor: themeObject.primary,
+            color: themeObject.text,
+          }}
+        >
           <div className="project-data-item">
             <span className="material-icons pr-2">rocket_launch</span>
             Projects Completed
           </div>
           <div className="project-count">2/3</div>
         </div>
-        <div className="project-data">
+        <div
+          className="project-data"
+          style={{
+            backgroundColor: themeObject.primary,
+            color: themeObject.text,
+          }}
+        >
           <div className="project-data-item">
             <span className="material-icons-outlined pr-2">timer</span>
             Total Time Spent
@@ -40,8 +53,8 @@ const Dashboard = () => {
           className="github-img"
         />
       </div>
-      <div>
-        <p>Leaderboard</p>
+      <div className="leaderboard-ctn">
+        <LeaderBoard />
       </div>
     </section>
   );
