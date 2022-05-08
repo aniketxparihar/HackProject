@@ -12,6 +12,7 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import Todo from "./Pages/Todo/Todo";
 import Project from "./Pages/Project/Project";
 import Resources from "./Pages/ProjectResources/Resources";
+import ProjectTodo from "./Pages/Project/ProjectTodo"
 const Routes = () => {
   return (
     <RoutesContainer>
@@ -23,10 +24,10 @@ const Routes = () => {
           <Route element={<PrivateRoute />}>
             <Route path="/notes" element={<Notes />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/project" element={<Project />}>
-              <Route path="/projects/project/tasks" element={<Todo />} />
+            <Route path="/projects/:projectId" element={<Project />}>
+              <Route  path="/projects/:projectId" element={<ProjectTodo/>} />
               <Route
-                path="/projects/project/resources"
+                path="/projects/:projectId/resources"
                 element={<Resources />}
               />
             </Route>

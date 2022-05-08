@@ -8,10 +8,7 @@ const Search = () => {
   const [searchInput, setSearchInput] = useState("");
   const { themeObject } = useTheme();
   const {
-    searchState,
     searchData,
-    handleSubmit,
-    changeHandler,
     isAddLink,
     setIsAddLink,
     handleDelete,
@@ -24,9 +21,7 @@ const Search = () => {
     }
   };
 
-  const handleDeleteLink = (item) => {
-    console.log(item);
-  };
+
   return (
     <section
       className="search-ctn rounded-xl"

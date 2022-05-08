@@ -1,13 +1,16 @@
 import React from "react";
+import { useParams } from 'react-router-dom';
 import { useAuth } from "../../Context/Auth-Context";
+import { useProjectTodos } from "../../Context/ProjectTodoContext";
 import { useTheme } from "../../Context/Theme-Context";
-import { useTodos } from "../../Context/TodoContext";
-import {handleComplete, handleDelete} from "../../services/TodoServices"
+import {handleTaskComplete, handleTaskDelete} from "../../services/ProjectTodoServices"
 
-function InComplete() {
+function ProjectTodoInComplete() {
   const { themeObject } = useTheme();
-  const { todos } = useTodos();
+  const { projectTodos } = useProjectTodos();
   const {user}=useAuth();
+  const {projectId}=useParams();
+
   return (
     <div className="w-1/2 flex-col items-center mr-8 ">
       <h3 className="text-2xl m-8" style={{ color: themeObject.text }}>
@@ -17,7 +20,7 @@ function InComplete() {
         class="task-container list-cont flex-col items-center rounded-2xl"
         style={{ backgroundColor: themeObject.primary }}
       >
-        {todos.map((todo) => {
+        {projectTodos.map((todo) => {
           return (
             todo.isComplete || (
               <li
@@ -30,12 +33,12 @@ function InComplete() {
                 <button
                   class="mr-8 flex items-center"
                   style={{ color: themeObject.text }}
-                  onClick={()=>handleComplete(todo)}
+                  onClick={()=>handleTaskComplete(projectId,todo)}
                 >
                   <span class="material-symbols-outlined">done</span>
                 </button>
-                <span className="incompleted-task">{todo.todo}</span>
-                <button class="mr-8 flex items-center ml-auto text-red-600 " onClick={()=>handleDelete(todo.id)}>
+                <span className="incompleted-task">{todo.taskName}</span>
+                <button class="mr-8 flex items-center ml-auto text-red-600 " onClick={()=>handleTaskDelete(projectId,todo.id)}>
                   <span class="material-symbols-outlined">close</span>
                 </button>
               </li>
@@ -47,4 +50,4 @@ function InComplete() {
   );
 }
 
-export default InComplete;
+export default ProjectTodoInComplete;

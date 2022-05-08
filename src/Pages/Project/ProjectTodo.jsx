@@ -1,16 +1,18 @@
-import React from "react";
+import {React,useEffect} from "react";
 import { useTheme } from "../../Context/Theme-Context";
-import { useTodos } from "../../Context/TodoContext";
-import Completed from "./Completed";
-import InComplete from "./InComplete";
-import {handleClearAll} from "../../services/TodoServices"
-import "./todo.css";
+import ProjectTodoComplete from "./ProjectTodoComplete"
+import ProjectTodoInComplete from "./ProjectTodoInComplete";
+import "../Todo/todo.css";
+import { useProjectTodos } from "../../Context/ProjectTodoContext";
+import { useParams } from "react-router-dom";
 
 function Todo() {
+   const {projectId}=useParams();
     const { themeObject } = useTheme();
-    const {todos,changeHandler,handleSubmit,input}=useTodos();
+    const {projectTodos,setProjectId,changeHandler,handleSubmit,input}=useProjectTodos();
+
     const calculateTasks=()=>{
-       const count= todos.reduce((acc,cur)=>{
+       const count= projectTodos.reduce((acc,cur)=>{
            if(!cur.isComplete){
                acc=acc+1
            }
@@ -18,6 +20,10 @@ function Todo() {
         },0)
         return count
     }
+
+    useEffect(() => {
+      setProjectId(projectId)
+    }, [])
     
   return (
     <div class="todo-container relative">
@@ -52,16 +58,9 @@ function Todo() {
         </h3>
       </header>
       <div class="flex justify-center">
-        <InComplete/>
-        <Completed/>
+        <ProjectTodoInComplete/>
+        <ProjectTodoComplete/>
       </div>
-      <button
-        class="rounded-full h-14 w-36 bg-red-600 mt-8 ml-auto"
-        style={{ color: themeObject.text }}
-        onClick={()=>handleClearAll(todos)}
-      >
-        Clear all
-      </button>
     </div>
   );
 }
