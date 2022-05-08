@@ -15,7 +15,7 @@ const Notes = () => {
   const [todos, setTodos] = React.useState([]);
 
   React.useEffect(() => {
-    const q = query(collection(db, "todos"));
+    const q = query(collection(db, "notes"));
     const unsub = onSnapshot(q, (querySnapshot) => {
       let todosArray = [];
       querySnapshot.forEach((doc) => {
@@ -27,13 +27,13 @@ const Notes = () => {
   }, []);
 
   const handleEdit = async (todo, title) => {
-    await updateDoc(doc(db, "todos", todo.id), { title: title });
+    await updateDoc(doc(db, "notes", todo.id), { title: title });
   };
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, "todos", todo.id), { completed: !todo.completed });
+    await updateDoc(doc(db, "notes", todo.id), { completed: !todo.completed });
   };
   const handleDelete = async (id) => {
-    await deleteDoc(doc(db, "todos", id));
+    await deleteDoc(doc(db, "notes", id));
   };
   return (
     <>

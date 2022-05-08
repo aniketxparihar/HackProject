@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "../../Context/Theme-Context";
 import { useTodos } from "../../Context/TodoContext";
+import { colRef } from "../../firebase/config";
 import Completed from "./Completed";
 import InComplete from "./InComplete";
+import {handleClearAll} from "../../services/TodoServices"
 import "./todo.css";
 
 function Todo() {
@@ -57,6 +59,7 @@ function Todo() {
       <button
         class="rounded-full h-14 w-36 bg-red-600 mt-8 ml-auto"
         style={{ color: themeObject.text }}
+        onClick={()=>handleClearAll(todos)}
       >
         Clear all
       </button>

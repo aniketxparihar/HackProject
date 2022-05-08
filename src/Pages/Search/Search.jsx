@@ -1,14 +1,21 @@
 import "./Search.css";
-import {useState} from "react";
-import {useTheme} from "../../Context/Theme-Context";
-import {useShortLink} from "../../Context/shortLink-context";
-import {AddLinkModal} from "./components/AddLinkModal";
+import { useState } from "react";
+import { useTheme } from "../../Context/Theme-Context";
+import { useShortLink } from "../../Context/shortLink-context";
+import { AddLinkModal } from "./components/AddLinkModal";
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [isAddLink, setIsAddLink] = useState(false);
-  const {themeObject} = useTheme();
-  const {shortLinkState, shortLinkDispatch} = useShortLink();
+  const { themeObject } = useTheme();
+  const {
+    searchState,
+    searchData,
+    handleSubmit,
+    changeHandler,
+    isAddLink,
+    setIsAddLink,
+    handleDelete,
+  } = useShortLink();
 
   const handleSearchResult = (e) => {
     if (e.key === "Enter") {
@@ -23,7 +30,7 @@ const Search = () => {
   return (
     <section
       className="search-ctn rounded-xl"
-      style={{backgroundColor: themeObject.secondary}}
+      style={{ backgroundColor: themeObject.secondary }}
     >
       <div className="search-head">
         <div
@@ -52,26 +59,35 @@ const Search = () => {
         </button>
       </div>
       <div className="links-ctn">
-        {shortLinkState.map((item) => (
-          <div className="link-delete-ctn" key={item.id}>
-            <span
-              className="material-icons link-delete-icon"
-              onClick={() => handleDeleteLink(item)}
-            >
-              close
-            </span>
-            <a href={item.link} target="_blank">
-              <div className="favicon-ctn">
-                <img
-                  src={item.icon}
-                  alt={item.title}
-                  className="site-favicon"
-                />
-              </div>
-              <p style={{color: themeObject.text}}>{item.title}</p>
-            </a>
-          </div>
-        ))}
+        {searchData.map((item) => {
+          let domain = new URL(item.URL);
+          domain = domain.hostname.replace("www.", "");
+          return (
+            <>
+              <button
+                className="delete-link"
+                onClick={(e) => handleDelete(item.id)}
+              >
+                <span class="material-symbols-outlined">close</span>
+              </button>
+              <a
+                key={item.id}
+                href={item.URL}
+                target="_blank"
+                className="link"
+              >
+                <div className="favicon-ctn">
+                  <img
+                    src={`https://api.faviconkit.com/${domain}/100`}
+                    alt={item.title}
+                    className="site-favicon"
+                  />
+                </div>
+                <span style={{ color: themeObject.text }}>{item.title}</span>
+              </a>
+            </>
+          );
+        })}
       </div>
       {isAddLink && <AddLinkModal setIsAddLink={setIsAddLink} />}
     </section>

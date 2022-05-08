@@ -110,8 +110,8 @@
 }
 
 .site-favicon {
-  height: 3rem;
-  width: 3rem;
+  height: 4rem;
+  width: 4rem;
   border-radius: 50%;
 }
 
@@ -134,3 +134,10 @@
   cursor: pointer;
   font-weight: bold;
 }
+
+.delete-link{
+  top: -5px;
+  right: -5px;
+  /* opacity: 0; */
+}
+

@@ -22,12 +22,13 @@ const db=getFirestore(app);
 
 // collection ref 
 const colRef=collection(db,"todos");
+const linkColRef=collection(db,"mylinks");
 
 // get collection data
 
 
 
-export {db,colRef};
+export {db,colRef,linkColRef};
 
 
 

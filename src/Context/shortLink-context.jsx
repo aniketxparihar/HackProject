@@ -1,43 +1,54 @@
-import {useContext, createContext, useReducer} from "react";
-import {v4 as uuid} from "uuid";
-import {searchFavicon} from "../Pages/Search/searchFavicon";
+import { useContext, createContext, useEffect,useState, useReducer } from "react";
+
+import { db,linkColRef } from "../firebase/config";
+import { addDoc, onSnapshot, query,deleteDoc,doc } from "firebase/firestore";
 
 const ShortLinkContext = createContext();
 
-const initialShortLink = [
-  
-  {
-    id: uuid(),
-    title: "github",
-    link: "https://github.com",
-    icon: searchFavicon("https://github.com"),
-  },
-  {
-    id: uuid(),
-    title: "twitter",
-    link: "https://twitter.com",
-    icon: searchFavicon("https://twitter.com"),
-  },
-];
+const ShortLinkProvider = ({ children }) => {
+  const [searchState,setSearchState]=useState({
+    title:"",
+    URL:"",
+  });
+  const [searchData,setSearchData]=useState([])
+  const [isAddLink, setIsAddLink] = useState(false);
 
-const shortLinkReducer = (state, action) => {
-  switch (action.type) {
-    case "ADD_SHORT_LINK":
-      return [...state, action.payload];
-    case "REMOVE_SHORT_LINK":
-      return {state};
-    default:
-      return {state};
+
+  const changeHandler = (e) => {
+    const name=e.target.name;
+    const value=e.target.value;
+    setSearchState((prev)=>({...prev,[name]:value}))
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    addDoc(linkColRef, {
+      title: searchState.title,
+      URL: searchState.URL,
+    });
+    setSearchState({URL:"",title:""});
+    setIsAddLink(false)
+  };
+
+  const handleDelete=async(id)=>{
+    await deleteDoc(doc(db,"mylinks",id))
+
   }
-};
 
-const ShortLinkProvider = ({children}) => {
-  const [shortLinkState, shortLinkDispatch] = useReducer(
-    shortLinkReducer,
-    initialShortLink
-  );
+  useEffect(() => {
+    const q = query(linkColRef);
+    const unSub = onSnapshot(q, (QuerySnapshot) => {
+      let searchArray = [];
+      QuerySnapshot.forEach((doc) => {
+        searchArray.push({ ...doc.data(), id: doc.id });
+      });
+      setSearchData(searchArray);
+    });
+    return () => unSub();
+  }, []);
+
   return (
-    <ShortLinkContext.Provider value={{shortLinkState, shortLinkDispatch}}>
+    <ShortLinkContext.Provider value={{searchState,searchData,handleSubmit,handleDelete,changeHandler,isAddLink,setIsAddLink }}>
       {children}
     </ShortLinkContext.Provider>
   );
@@ -45,4 +56,4 @@ const ShortLinkProvider = ({children}) => {
 
 const useShortLink = () => useContext(ShortLinkContext);
 
-export {useShortLink, ShortLinkProvider};
+export { useShortLink, ShortLinkProvider };

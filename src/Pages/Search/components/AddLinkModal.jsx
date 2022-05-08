@@ -5,23 +5,9 @@ import {useShortLink} from "../../../Context/shortLink-context";
 import {searchFavicon} from "../searchFavicon";
 
 const AddLinkModal = ({setIsAddLink}) => {
-  const [linkTitle, setLinkTitle] = useState("");
-  const [linkUrl, setLinkUrl] = useState("");
   const {themeObject} = useTheme();
-  const {shortLinkState, shortLinkDispatch} = useShortLink();
-  const handleAddLink = (e) => {
-    e.preventDefault();
-    shortLinkDispatch({
-      type: "ADD_SHORT_LINK",
-      payload: {
-        id: uuid(),
-        title: linkTitle,
-        link: linkUrl,
-        icon: searchFavicon(linkUrl),
-      },
-    });
-    setIsAddLink((prev) => !prev);
-  };
+  const {searchState,searchData,handleSubmit,changeHandler}=useShortLink();
+
   return (
     <div
       className="modal-overlay"
@@ -32,33 +18,34 @@ const AddLinkModal = ({setIsAddLink}) => {
         onClick={(e) => e.stopPropagation()}
         style={{backgroundColor: themeObject.primary}}
       >
-        <form className="add-link-form" onSubmit={handleAddLink}>
-          <input
-            type="text"
-            placeholder="Link Title"
-            className="add-link-input"
-            required
-            style={{
-              backgroundColor: themeObject.secondary,
-              color: themeObject.text,
-            }}
-            value={linkTitle}
-            onChange={(e) => setLinkTitle(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Link URL"
-            className="add-link-input"
-            required
-            style={{
-              backgroundColor: themeObject.secondary,
-              color: themeObject.text,
-            }}
-            value={linkUrl}
-            onChange={(e) => setLinkUrl(e.target.value)}
-          />
-          <button className="btn-create-link">Create Shortcut</button>
-        </form>
+        <input
+          type="text"
+          placeholder="Link Title"
+          className="add-link-input"
+          style={{
+            backgroundColor: themeObject.secondary,
+            color: themeObject.text,
+          }}
+          name="title"
+          value={searchState.title}
+          onChange={(e) => changeHandler(e)}
+        />
+        <input
+          type="text"
+          placeholder="Link URL"
+          className="add-link-input"
+          style={{
+            backgroundColor: themeObject.secondary,
+            color: themeObject.text,
+          }}
+          name="URL"
+          value={searchState.URL}
+          onChange={(e) => changeHandler(e)}
+        />
+        <button onClick={handleSubmit} className="btn-create-link">
+          Create Shortcut
+        </button>
+      
       </div>
     </div>
   );
