@@ -8,12 +8,13 @@ import { auth,googleProvider } from "../../firebase/config";
 const Login = () => {
   const location=useNavigate();
   const navigate=useLocation();
+
+
   const signInWithGoogle=()=>signInWithPopup(auth,googleProvider).then((result)=>{
     const credential=GoogleAuthProvider.credentialFromResult(result);
     const token=credential.accessToken;
     const user=result.user;
     navigate(location.state?.from?.pathname || '/',{replace:true});
-    console.log(user)
   }).catch((error)=>{
     console.log(error.message)
   })
