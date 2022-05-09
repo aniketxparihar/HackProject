@@ -85,4 +85,4 @@ For Further Details visit : [Tabfi's Documentation](https://tabfi.carrd.co/)
 
 No more boring new tabs. Replace it with Coder's paradise now.
 
-To Add Tabify to your browser : [Tabfi]()
+To Add Tabify to your browser : [Tabfi](https://tabfi.netlify.app/)
