@@ -1,6 +1,6 @@
 
 import { signOut } from 'firebase/auth';
-import React from 'react'
+import React,{useState} from 'react'
 import { useAuth } from '../../Context/Auth-Context';
 import { useTheme } from '../../Context/Theme-Context';
 import { auth } from '../../firebase/config';
@@ -10,6 +10,20 @@ import "./Navbar.css"
 const Navbar = () => {
   const { theme, themeHandler, themeObject } = useTheme();
   const { user } = useAuth();
+  const colors = [
+    "#22d3ee",
+    "#38bdf8",
+    "#60a5fa",
+    "#818cf8",
+    "#a78bfa",
+    "#9333ea",
+    "#e879f9",
+    "#14b8a6",
+  ];
+  const [bgColorIndex, setBgColorIndex] = useState(0);
+  setTimeout(() => {
+    bgColorIndex < 7 ? setBgColorIndex(bgColorIndex + 1) : setBgColorIndex(0);
+  }, 1000);
   const logoutHandler=()=>{
     signOut(auth).then(()=>{
       localStorage.setItem("token","")
@@ -23,10 +37,13 @@ const Navbar = () => {
   return (
     <div
       className="navbar__container bg-gray-400 m-8 h-20 rounded-2xl flex border-l-8 border-r-8 border-cyan-500"
-      style={{backgroundColor: themeObject.secondary}}
+      style={{ backgroundColor: themeObject.secondary }}
     >
-      <div className="navbar__container--heading ml-8 text-2xl text-cyan-400 font-bold">
-        Tabfi
+      <div
+        className="navbar__container--heading ml-8 text-2xl  font-bold"
+        style={{ color: `${colors[bgColorIndex]}`, transition: "2s" }}
+      >
+         Tabfi
       </div>
 
       <div className="ml-8">
