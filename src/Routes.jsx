@@ -34,7 +34,7 @@ const Routes = () => {
             </Route>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/todo" element={<Todo />} />
-            <Route path="/" element={<Todo/>}/>
+            <Route index path="/" element={<Search />} />
           </Route>
         </Route>
       </Route>
