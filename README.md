@@ -41,7 +41,7 @@ If only we had all our productivity features in one place and also had all our d
 in one single place.
 Our motivation was simply to make our life easier in the rest of the camp and beyond.
 
-For Further Details visit : [Coder's Paradise Documentation](https://codersparadise.carrd.co/)
+For Further Details visit : [Tabfi's Documentation](https://codersparadise.carrd.co/)
 
 ### Login
 
@@ -87,4 +87,4 @@ For Further Details visit : [Coder's Paradise Documentation](https://codersparad
 
 No more boring new tabs. Replace it with Coder's paradise now.
 
-To Add Tabify to your browser : [Coder's Paradise]()
+To Add Tabify to your browser : [Tabfi]()
