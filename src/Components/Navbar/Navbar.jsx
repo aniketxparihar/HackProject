@@ -24,7 +24,7 @@ const Navbar = () => {
       style={{backgroundColor: themeObject.secondary}}
     >
       <div className="navbar__container--heading ml-8 text-2xl text-cyan-400 font-bold">
-        HackProject
+        Tabfi
       </div>
 
       <div className="ml-8">
