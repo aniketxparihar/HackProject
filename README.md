@@ -41,24 +41,24 @@ If only we had all our productivity features in one place and also had all our d
 in one single place.
 Our motivation was simply to make our life easier in the rest of the camp and beyond.
 
-For Further Details visit : [Tabfi's Documentation](https://codersparadise.carrd.co/)
+For Further Details visit : [Tabfi's Documentation](https://tabfi.carrd.co/)
 
 ### Login
 
-![Login page](https://user-images.githubusercontent.com/87899262/167321208-d489bdaf-88e6-43a8-8ea5-192a6485a943.png)
+![login](https://user-images.githubusercontent.com/87899262/167323746-b9411315-5015-49ff-8531-6ea26b5b5fbc.png)
 
 
 
 ### Search Tab
 
-![Search Page](https://user-images.githubusercontent.com/87899262/167321243-b93ba148-5885-4bf9-b7b0-0d6bdab00597.png)
+![search](https://user-images.githubusercontent.com/87899262/167323767-cb9e4417-9e00-4544-b4ab-165c1e7896c7.png)
 
 
 #### Use our search tab to search all your doubts & add your fav websites on the page.
 
 ### Todo's List
 
-![Todo page](https://user-images.githubusercontent.com/87899262/167321261-98c54b78-0479-4ce7-a53c-1e30fbc6dba7.png)
+![todo](https://user-images.githubusercontent.com/87899262/167323761-45b78004-3bfb-45ce-b20e-6c24365e0101.png)
 
 #### Add Todo's & Get more done with daily tasks and goals.
 
@@ -66,20 +66,18 @@ For Further Details visit : [Tabfi's Documentation](https://codersparadise.carrd
 
 ### Note's Tab
 
-![Notes Tab](https://user-images.githubusercontent.com/87899262/167321350-ffb8e3c9-b57a-4938-937f-811b323953be.png)
+![notes](https://user-images.githubusercontent.com/87899262/167323784-dbae25ab-e180-4f51-8038-8e343e490882.png)
 
 #### Tabfi helps user to take notes anytime any where on a go and it makes learning more efficient as tabify provides you your workfiles at one place.
 
 ### Project's Tab
-
-![Projects Task ](https://user-images.githubusercontent.com/87899262/167321287-ff9997d6-e606-4667-9b96-fc409293da5b.png)
-![Project Resources](https://user-images.githubusercontent.com/87899262/167321380-36521060-e37c-4a73-a93d-862d010c763d.png)
+![task](https://user-images.githubusercontent.com/87899262/167323792-ce147a0e-7948-4595-ada9-fa64ac4c255f.png)
+![reasource](https://user-images.githubusercontent.com/87899262/167323800-6bed4415-def7-45bd-8550-ee882c5cb239.png)
 
 #### tabify helps you to track your progress on your projects and allows you to set total task which will be required to complete your projects.
 
 ### Dashboard Tab
-
-![Dashboard Tab](https://user-images.githubusercontent.com/87899262/167321421-cda4c00d-4994-4fc8-b094-e03868b2444f.png)
+![dashboard](https://user-images.githubusercontent.com/87899262/167323807-56403914-4a37-4857-adf9-f34c4744fc81.png)
 
 #### Tabify helps user to keep track of the commits and projects they have made. By making details regarding the projetcs availabe in the dasboard tab.
 
