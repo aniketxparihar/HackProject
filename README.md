@@ -27,44 +27,64 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Tabfi
 
-### `npm run eject`
+A thoughtful productive app to give your browser a colorful update.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Tabfi is a general-purpose new tab extension tailored especially for new-age developers who like to be productive.
+Tabfi boasts of several intuitive features like notes, todos, Pomodoro, bookmarks, Project Management, and even Lofi!!.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Why we decided to make this our Hackathon Submissions?
+We have been making projects for 4 months in neogCamp and
+we figured out that jumping from one project to another was hindering our focus.
+If only we had all our productivity features in one place and also had all our dev data
+in one single place.
+Our motivation was simply to make our life easier in the rest of the camp and beyond.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+For Further Details visit : [Tabfi's Documentation](https://codersparadise.carrd.co/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Login
 
-## Learn More
+![Login page](https://user-images.githubusercontent.com/87899262/167321208-d489bdaf-88e6-43a8-8ea5-192a6485a943.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Search Tab
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Search Page](https://user-images.githubusercontent.com/87899262/167321243-b93ba148-5885-4bf9-b7b0-0d6bdab00597.png)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Use our search tab to search all your doubts & add your fav websites on the page.
 
-### Making a Progressive Web App
+### Todo's List
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Todo page](https://user-images.githubusercontent.com/87899262/167321261-98c54b78-0479-4ce7-a53c-1e30fbc6dba7.png)
 
-### Advanced Configuration
+#### Add Todo's & Get more done with daily tasks and goals.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Todo's Help you to be more efficient & Swift.
 
-### Deployment
+### Note's Tab
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![Notes Tab](https://user-images.githubusercontent.com/87899262/167321350-ffb8e3c9-b57a-4938-937f-811b323953be.png)
 
-### `npm run build` fails to minify
+#### Tabfi helps user to take notes anytime any where on a go and it makes learning more efficient as tabify provides you your workfiles at one place.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Project's Tab
+
+![Projects Task ](https://user-images.githubusercontent.com/87899262/167321287-ff9997d6-e606-4667-9b96-fc409293da5b.png)
+![Project Resources](https://user-images.githubusercontent.com/87899262/167321380-36521060-e37c-4a73-a93d-862d010c763d.png)
+
+#### tabify helps you to track your progress on your projects and allows you to set total task which will be required to complete your projects.
+
+### Dashboard Tab
+
+![Dashboard Tab](https://user-images.githubusercontent.com/87899262/167321421-cda4c00d-4994-4fc8-b094-e03868b2444f.png)
+
+#### Tabify helps user to keep track of the commits and projects they have made. By making details regarding the projetcs availabe in the dasboard tab.
+
+### And the best thing about Tabfi is that 🎉 it's completely free.
+
+No more boring new tabs. Replace it with Coder's paradise now.
+
+To Add Tabify to your browser : [Tabfi]()
