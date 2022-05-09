@@ -46,7 +46,7 @@ const Navbar = () => {
          Tabfi
       </div>
 
-      <div className="ml-8">
+      <div className="soundcloud-container ml-8">
         <iframe
           width="60%"
           height={74}
@@ -92,7 +92,7 @@ const Navbar = () => {
           </span>
         </div>
         <div
-          className=" ml-6 mr-6 flex justify-content items-center font-bold text-s"
+          className="username-navbar ml-6 mr-6 flex justify-content items-center  "
           style={{
             color: themeObject.text,
           }}

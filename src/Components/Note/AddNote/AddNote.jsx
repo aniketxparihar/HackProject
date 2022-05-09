@@ -8,7 +8,7 @@ export default function AddTodo() {
   const {input,handleSubmit,changeHandler}=useNotes();
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full m-8">
+    <form onSubmit={handleSubmit} className="flex w-4/5 m-8">
       <div className="input_container w-4/5 mr-8">
         <input
           type="text"

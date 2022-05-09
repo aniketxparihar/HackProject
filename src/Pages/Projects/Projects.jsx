@@ -36,7 +36,7 @@ const Projects = () => {
               <>
                 <Link
                   to={`/projects/${project.id}`}
-                  className="project h-32  m-8 rounded-xl flex flex-col justify-start items-start font-bold cursor-pointer "
+                  className="project h-28  m-8 rounded-xl flex flex-col justify-start items-start font-bold cursor-pointer "
                   style={{
                     backgroundColor: themeObject.primary,
                   }}
@@ -49,8 +49,16 @@ const Projects = () => {
                     }}
                   >
                     {project.project}
-                    <span className="material-symbols-outlined" onClick={()=>handleDelete(project.id)}>delete</span>
                   </div>
+                  <span
+                    className="material-symbols-outlined ml-auto mr-2"
+                    onClick={() => handleDelete(project.id)}
+                    style={{
+                      color: themeObject.text,
+                    }}
+                  >
+                    delete
+                  </span>
                 </Link>
               </>
             );

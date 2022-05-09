@@ -11,4 +11,9 @@
     position: absolute;
     bottom:6rem;
     right:4rem;
+}@media screen and (max-width: 800px) {
+  
+.pomodoro__container{
+  margin-left:2rem;
+}
 }

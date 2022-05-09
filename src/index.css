@@ -17,7 +17,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 html{
-  font-size: 14px;;
+  font-size: 15px;;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -29,13 +29,23 @@ code {
   font-size: 12px;;
 }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1200px) {
   html{
   font-size: 10px;;
+}
+.soundcloud-container{
+  display: none;
 }
 }
 @media screen and (max-width: 800px) {
   html{
   font-size: 8px;
+}
+.project-task-container{
+  flex-direction: column;
+}
+.project-task__wrapper{
+  width:100%;
+  justify-content: center;
 }
 }

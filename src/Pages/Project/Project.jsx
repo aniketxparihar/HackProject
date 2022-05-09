@@ -14,8 +14,8 @@ const Project = () => {
     setCountTasks(projectTodos.filter((todo)=>todo.isComplete).length)
 }, [])
   return (
-    <div className="flex">
-      <div className="flex flex-col w-1/2 h-full">
+    <div className="project-task-container flex">
+      <div className="project-task__wrapper flex flex-col w-1/2 h-full">
         <div className="project-actions flex mb-10 mt-2">
           <Link
             to={`/projects/${projectId}`}
