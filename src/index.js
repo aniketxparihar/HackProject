@@ -1,12 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "./Context/Theme-Context";
+import { TodoProvider } from "./Context/TodoContext";
+import { ShortLinkProvider } from "./Context/shortLink-context";
+import { AuthProvider } from "./Context/Auth-Context";
+import { NoteProvider } from "./Context/NoteContext";
+import { ProjectsProvider } from "./Context/ProjectsContext";
+import { ProjectTodoProvider } from "./Context/ProjectTodoContext";
+import {
+  ResourceProvider,
+} from "./Context/ResourceContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <AuthProvider>
+        <ThemeProvider>
+          <ProjectsProvider>
+            <ProjectTodoProvider>
+              <ResourceProvider>
+                <NoteProvider>
+                  <TodoProvider>
+                    <ShortLinkProvider>
+                      <Routes />
+                    </ShortLinkProvider>
+                  </TodoProvider>
+                </NoteProvider>
+              </ResourceProvider>
+            </ProjectTodoProvider>
+          </ProjectsProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
